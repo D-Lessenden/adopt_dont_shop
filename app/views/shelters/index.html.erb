@@ -1,5 +1,19 @@
 <h1>Shelters</h1>
 
-<% @shelters.each do |shelter| %>
-  <h3><%= shelter %></h3>
-<% end %>
+ <%# <% @shelters.each do |shelter| %>
+<!-- <h3><#%= shelter %></h3> -->
+<%# <% end %>
+
+<!-- <ul>
+  <li><a href="/shelter_1">Shelter 1</a></li>
+  <li><a href="/shelter_2">Shelter 2</a></li>
+  <li><a href="/shelter_3">Shelter 3</a></li>
+</ul> -->
+
+<form action="/shelters" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new task:</p>
+  <input type='text' name='shelter[title]'/><br/>
+  <textarea name='shelter[description]'></textarea><br/>
+  <input type='submit'/>
+</form>
