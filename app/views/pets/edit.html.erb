@@ -2,15 +2,20 @@
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 <input type="hidden" name="_method" value="PATCH" />
 <p>Make Your Edits!</p>
-<p>Name </p>
+<p>Image </p>
 <input type='text' name='pet[image]' value="<%= @pet.image %>"/><br/>
-<p>Address </p>
+<p>Name </p>
 <input type='text' name='pet[name]' value="<%= @pet.name %>"/><br/>
-<p>City </p>
+<p>Description </p>
+<input type='text' name='pet[description]' value="<%= @pet.description %>"/><br/>
+<p>Approximate age </p>
 <input type='text' name='pet[approximate_age]' value="<%= @pet.approximate_age %>"/><br/>
-<p>State</p>
+<p>Sex</p>
 <input type='text' name='pet[sex]' value="<%= @pet.sex %>"/><br/>
-<p>Zip </p>
-<input type='text' name='pet[shelter_id]' value="<%= @pet.shelter %>"/><br/>
+<p>Shelter </p>
+<input type='text' name='pet[shelter_id]' value="<%= @pet.shelter_id %>"/><br/>
+
+<!-- <input type='text' name='pet[adoption_status]' value="<#%= @pet.adoption_status %>"/><br/> -->
+
 <input type='submit'/>
 </form>

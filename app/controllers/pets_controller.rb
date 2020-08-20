@@ -32,9 +32,12 @@ class PetsController < ApplicationController
     pet.update({
       image: params[:pet][:image],
       name: params[:pet][:name],
+      description: params[:pet][:description],
       approximate_age: params[:pet][:approximate_age],
       sex: params[:pet][:sex],
-      shelter_id: params[:pet][:shelter_id]
+      shelter_id: params[:pet][:shelter_id],
+      adoption_status: params[:pet][:adoption_status]
+
       })
     pet.save
     redirect_to "/pets/#{pet.id}"
