@@ -3,9 +3,8 @@
 
   <% @pets.each do |pet| %>
   <h3><a href="/pets/<%= pet.id %>"><%= pet.name %></a></h3>
-
+  <p> <%= pet.image %></p>
   <p>Age: <%= pet.age %></p>
   <p>Sex: <%= pet.sex %></p>
-  <p>Shelter: <%= pet.state %></p>
-  <!-- shelter name and image -->
+  <p>Shelter: <%= pet.shelter %></p>
   <% end %>
