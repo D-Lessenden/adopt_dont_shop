@@ -1,0 +1,15 @@
+<form action="/pets" method="post">
+ <input type="hidden" name="authenticity_token" value="<#%= form_authenticity_token %>">
+ <p>Image: </p>
+ <input type='text' name='pet[image]'/><br/>
+ <p>Name: </p>
+ <input type='text' name='pet[name]'/><br/>
+ <p>Approximate age: </p>
+ <input type='text' name='pet[approximate_age]'/><br/>
+ <p>Sex: </p>
+ <input type='text' name='pet[sex]'/><br/>
+ <p>Shelter: </p>
+ <input type='text' name='pet[shelter]'/><br/>
+ <!-- <textarea name='shelter[description]'></textarea><br/> -->
+ <input type='submit' value="Create Pet"/>
+</form>

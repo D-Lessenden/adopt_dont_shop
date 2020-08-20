@@ -46,5 +46,14 @@ class SheltersController < ApplicationController
     redirect_to '/shelters'
   end
 
+  #maybe need to add a pets method? for story 8
+  # def pets
+  #   #@shelter = Shelter.find(params[:id])
+  #   @pet = Pet.find(params[:id == :shelter_id])
+  #     # @shelter = Shelter.find(params[:id])
+  #     # @shelter = Shelter.find(params[:id])
+  #   #  :id == :shelter_id
+  # end
+
 
 end
