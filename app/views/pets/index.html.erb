@@ -1,4 +1,7 @@
-<a href="/"><input type="submit" value="Back to Home"/></a>
+<%= link_to 'Back To Home', "/" %><br>
+
+<%= link_to 'Create Pet', "/shelters/#{@shelter_id}/pets/new" %>
+
 <h1>Pets</h1>
 
   <% @pets.each do |pet| %>

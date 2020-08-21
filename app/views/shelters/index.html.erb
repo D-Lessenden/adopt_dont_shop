@@ -11,18 +11,12 @@
   <p>State: <%= shelter.state %></p>
   <p>Zip: <%= shelter.zip %></p>
 
-  <a href="/shelters/<%= shelter.id %>/pets"><input type="submit" value="Pets"/></a><br>
+  <%= link_to 'Pets', "/shelters/#{shelter.id}/pets" %>
+
   <a href="/shelters/<%= shelter.id  %>/edit"><input type="submit" value="Edit"/></a>
     <form action="/shelters/<%= shelter.id %>" method="POST">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="delete"/>
+      <input type="submit" value="Delete"/>
     </form>
   <% end %>
-
-<!-- new button here
-
-
-
-<!-- Shelter.create(name: "shelter1", address: "123 main street", city: "Denver", state:"CO", zip: 80260)
-     Shelter.create(name: "shelter2", address: "456 main ave", city: "Denver", state:"CO", zip: 80260) -->

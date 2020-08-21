@@ -1,6 +1,5 @@
 class SheltersController < ApplicationController
   def index
-    #@shelters = ['Shelter 1', 'Shelter 2', 'Shelter 3']
     @shelters = Shelter.all
   end
 
@@ -46,13 +45,8 @@ class SheltersController < ApplicationController
     redirect_to '/shelters'
   end
 
-  #maybe need to add a pets method? for story 8
   # def pets
-  #   #@shelter = Shelter.find(params[:id])
-  #   @pet = Pet.find(params[:id == :shelter_id])
-  #     # @shelter = Shelter.find(params[:id])
-  #     # @shelter = Shelter.find(params[:id])
-  #   #  :id == :shelter_id
+  #  @shelter = Shelter.find(params[:shelter_id]).pets
   # end
 
 

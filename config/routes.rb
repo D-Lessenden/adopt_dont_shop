@@ -11,13 +11,19 @@ Rails.application.routes.draw do
   patch '/shelters/:id', to: 'shelters#update'
   delete '/shelters/:id', to: 'shelters#destroy'
 
-  # get '/shelters/:id', to: 'shelters#index'
-  # get '/shelters/:shelter_id/pets', to: 'shelters#pets'
-  #user story 8
+
+  get '/shelters/:shelter_id/pets', to: 'pets#index'
+  post 'pets', to: 'pets#create'
+
+  get '/shelters/:shelter_id/pets/new', to: 'pets#new'
+
+  post '/shelters/:shelter_id/pets/new', to: 'pets#create'
+  #post '/pets', to: 'pets#create'
+
 
   get '/pets', to: 'pets#index'
   get '/pets/new', to: 'pets#new'
-  post '/pets', to: 'pets#create'
+  # post '/pets', to: 'pets#create'
 
   get '/pets/:id', to: 'pets#show'
   get '/pets/:id/edit', to: 'pets#edit'
