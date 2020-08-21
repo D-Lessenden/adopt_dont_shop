@@ -27,7 +27,7 @@ class PetsController < ApplicationController
 
       })
     pet.save
-    redirect_to '/shelters/'
+    redirect_to "/shelters/#{pet.shelter_id}/pets"
   end
 
   def edit
