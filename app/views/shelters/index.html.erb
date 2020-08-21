@@ -1,6 +1,7 @@
-<a href="/"><input type="submit" value="Back to Home"/></a>
+<%= link_to 'Back To Home', "/" %><br>
 <h1>Shelters</h1>
-<a href="/shelters/new"><input type="submit" value="New Shelter"/></a></li>
+<%= link_to "New Shelter", "/shelters/new" %><br>
+
 
 
   <% @shelters.each do |shelter| %>
@@ -13,10 +14,4 @@
 
   <%= link_to 'Pets', "/shelters/#{shelter.id}/pets" %>
 
-  <a href="/shelters/<%= shelter.id  %>/edit"><input type="submit" value="Edit"/></a>
-    <form action="/shelters/<%= shelter.id %>" method="POST">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete"/>
-    </form>
   <% end %>
