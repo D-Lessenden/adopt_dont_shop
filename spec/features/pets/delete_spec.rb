@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Delete Pet' do
   before :each do
-    @shelter1 = Shelter.create(name: "Shelter1", address: "address", city: "city", state: "state", zip: 12345)
+    @shelter1 = Shelter.create!(name: "Shelter1", address: "address", city: "city", state: "state", zip: 12345)
     @pet1 = Pet.create!(image: "url", name: "snowball", approximate_age: 5, sex: "male", shelter_id: @shelter1.id)
     @pet2 = Pet.create!(image: "url", name: "fireball", approximate_age: 5, sex: "male", shelter_id: @shelter1.id)
     end

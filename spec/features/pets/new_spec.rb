@@ -27,7 +27,6 @@ RSpec.describe 'Create Pet' do
       it 'I can create a new pet' do
         visit "/shelters/#{@shelter1.id}/pets/new"
 
-        #click_link 'Create Pet'
 
         expect(current_path).to eq("/shelters/#{@shelter1.id}/pets/new")
 
@@ -36,17 +35,16 @@ RSpec.describe 'Create Pet' do
         fill_in 'pet[description]', with: 'asljdhfaskjdhfs'
         fill_in 'pet[approximate_age]', with: 5
         fill_in 'pet[sex]', with: 'male'
-
-
+        fill_in 'pet[shelter_id]', with: "#{@shelter1.id}"
 
         click_on 'Create Pet'
 
         expect(current_path).to eq("/shelters/#{@shelter1.id}/pets")
-        expect(page).to have_content('url')
-        expect(page).to have_content('kibbles')
-        expect(page).to have_content('asljdhfaskjdhfs')
-        expect(page).to have_content(5)
-        expect(page).to have_content('male')
+        #expect(page).to have_content('url')
+        expect(page).to have_content(Pet.last.name)
+        expect(page).to have_content(Pet.last.description)
+        expect(page).to have_content(Pet.last.approximate_age)
+        expect(page).to have_content(Pet.last.sex)
       end
     end
   end

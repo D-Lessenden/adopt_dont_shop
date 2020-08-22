@@ -1,3 +1,9 @@
+<%= link_to 'Back To Home', "/" %><br>
+<%= link_to 'Go to Shelters', "/shelters" %><br>
+<%= link_to 'Go to Pets', "/pets" %><br>
+
+
+
 <form action="/shelters" method="post">
  <input type="hidden" name="authenticity_token" value="<#%= form_authenticity_token %>">
  <p>Name: </p>

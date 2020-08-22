@@ -1,4 +1,7 @@
 <%= link_to 'Back To Home', "/" %><br>
+<%= link_to 'Go to Shelters', "/shelters" %><br>
+<%= link_to 'Go to Pets', "/pets" %><br>
+
 <h1>Shelters</h1>
 <%= link_to "New Shelter", "/shelters/new" %><br>
 
@@ -13,5 +16,11 @@
   <p>Zip: <%= shelter.zip %></p>
 
   <%= link_to 'Pets', "/shelters/#{shelter.id}/pets" %>
+  <%= link_to 'Edit', "/shelters/#{shelter.id}/edit" %>
+  <form action="/shelters/<%= shelter.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="Delete Shelter" value="Delete"/>
+  </form>
 
   <% end %>
