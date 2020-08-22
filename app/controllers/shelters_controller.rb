@@ -1,6 +1,5 @@
 class SheltersController < ApplicationController
   def index
-    #@shelters = ['Shelter 1', 'Shelter 2', 'Shelter 3']
     @shelters = Shelter.all
   end
 
@@ -45,6 +44,10 @@ class SheltersController < ApplicationController
     Shelter.destroy(params[:id])
     redirect_to '/shelters'
   end
+
+  # def pets
+  #  @shelter = Shelter.find(params[:shelter_id]).pets
+  # end
 
 
 end

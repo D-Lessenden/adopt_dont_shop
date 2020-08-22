@@ -1,29 +1,25 @@
-<a href="/"><input type="submit" value="Back to Home"/></a>
+<%= link_to 'Back To Home', "/" %><br>
+<%= link_to 'Go to Pets', "/pets" %><br>
+
 <h1>Shelters</h1>
-<a href="/shelters/new"><input type="submit" value="New Shelter"/></a></li>
+<%= link_to "New Shelter", "/shelters/new" %><br>
+
 
 
   <% @shelters.each do |shelter| %>
   <h3><a href="/shelters/<%= shelter.id %>"><%= shelter.name %></a></h3>
 
-  <!-- <h2><#%= shelter.name %></h2> -->
   <p>Address: <%= shelter.address %></p>
   <p>City: <%= shelter.city %></p>
   <p>State: <%= shelter.state %></p>
   <p>Zip: <%= shelter.zip %></p>
 
+  <%= link_to 'Pets', "/shelters/#{shelter.id}/pets" %><br>
+  <%= link_to 'Update Shelter', "/shelters/#{shelter.id}/edit" %><br>
+  <form action="/shelters/<%= shelter.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="Delete Shelter" value="Delete"/>
+  </form>
 
-  <a href="/shelters/<%= shelter.id  %>/edit"><input type="submit" value="Edit"/></a>
-    <form action="/shelters/<%= shelter.id %>" method="POST">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="delete"/>
-    </form>
   <% end %>
-
-<!-- new button here
-
-
-
-<!-- Shelter.create(name: "shelter1", address: "123 main street", city: "Denver", state:"CO", zip: 80260)
-     Shelter.create(name: "shelter2", address: "456 main ave", city: "Denver", state:"CO", zip: 80260) -->

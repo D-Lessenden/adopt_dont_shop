@@ -1,15 +1,21 @@
-<a href="/shelters">Back to shelters</a>
+<%= link_to 'Back To Home', "/" %><br>
+<%= link_to 'Go to Shelters', "/shelters" %><br>
+<%= link_to 'Go to Pets', "/pets" %><br>
+
 
 <h1><%= @shelter.name %></h1>
-
-<p><%= @shelter.address %></p>
-<p><%= @shelter.city %></p>
-<p><%= @shelter.state %></p>
-<p><%= @shelter.zip %></p>
-
-<a href="/shelters/<%= @shelter.id %>/edit">Update Shelter</a>
-<!-- delete button here?
-
-
-
-<!-- Shelter.create(name: "shelter1", address: "123 main street", city: "Denver", state:"CO", zip: 80260) -->
+<p>Address: <%= @shelter.address %></p>
+<p>City: <%= @shelter.city %></p>
+<p>State: <%= @shelter.state %></p>
+<p>Zip: <%= @shelter.zip %></p>
+<%= link_to 'See Your Future Pet Here!', "/shelters/#{@shelter.id}/pets" %>
+<br>
+<br>
+<%= link_to 'Update Shelter', "/shelters/#{@shelter.id}/edit" %>
+<br>
+<br>
+<form action="/shelters/<%= @shelter.id %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" name="Delete Shelter" value="Delete"/>
+</form>

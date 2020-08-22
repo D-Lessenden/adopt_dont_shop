@@ -1,0 +1,13 @@
+<a href="/shelters">Back to shelters</a><br>
+<br><a href='/shelters/:shelter_id/pets/new'>Create Pet</a><br>
+
+<h1><%= @shelter_name%> Looking For a Home </h1>
+<% @shelter.each do |pet| %>
+  <ul><%= image_tag(pet.image, alt: pet.name, class: "pet-index-image") %> </ul>
+  <h3><%= pet.name %></h3>
+  <ul>Description: <%= pet.description %></ul>
+  <ul>Approximate age: <%= pet.approximate_age %></ul>
+  <ul>Sex: <%= pet.sex %></ul>
+  <ul>Adoption status: <%= pet.adoption_status %></ul>
+<% end %>
+move to pets index

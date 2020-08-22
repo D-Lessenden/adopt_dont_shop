@@ -1,3 +1,9 @@
+<%= link_to 'Back To Home', "/" %><br>
+<%= link_to 'Go to Shelters', "/shelters" %><br>
+<%= link_to 'Go to Pets', "/pets" %><br>
+
+
+
 <form action="/shelters" method="post">
  <input type="hidden" name="authenticity_token" value="<#%= form_authenticity_token %>">
  <p>Name: </p>
@@ -10,6 +16,5 @@
  <input type='text' name='shelter[state]'/><br/>
  <p>Zip: </p>
  <input type='text' name='shelter[zip]'/><br/>
- <!-- <textarea name='shelter[description]'></textarea><br/> -->
- <input type='submit' value="Create Shelter"/>
+ <input type='submit' name="Create Shelter" value="Create Shelter"/>
 </form>

@@ -1,0 +1,33 @@
+<%= link_to 'Back To Home', "/" %><br>
+<%= link_to 'Go to Shelters', "/shelters" %><br>
+<%= link_to 'Go to Pets', "/pets" %><br>
+
+<form action="/pets/<%= @pet.id %>" method="post">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<input type="hidden" name="_method" value="PATCH" />
+<p>Make Your Edits!</p>
+<p>Image </p>
+<input type='text' name='pet[image]' value="<%= @pet.image %>"/><br/>
+<p>Name </p>
+<input type='text' name='pet[name]' value="<%= @pet.name %>"/><br/>
+<p>Description </p>
+<input type='text' name='pet[description]' value="<%= @pet.description %>"/><br/>
+<p>Approximate age </p>
+<input type='text' name='pet[approximate_age]' value="<%= @pet.approximate_age %>"/><br/>
+<p>Sex</p>
+<input type='text' name='pet[sex]' value="<%= @pet.sex %>"/><br/>
+<p>Shelter </p>
+<input type='text' name='pet[shelter_id]' value="<%= @pet.shelter_id %>"/><br/>
+<p>Adoption Status</p>
+<input type='text' name='pet[adoption_status]' value="<%= @pet.adoption_status %>"/><br/>
+
+<!-- <input type='text' name='pet[adoption_status]' value="<#%= @pet.adoption_status %>"/><br/> -->
+
+<input type='submit' name="Update Pet" value="Update Pet"/>
+</form>
+
+<form action="/pets/<%= @pet.id %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"><br>
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" name="Delete Pet" value="Delete Pet"/>
+</form>
