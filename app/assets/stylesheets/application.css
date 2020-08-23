@@ -13,3 +13,53 @@
  *= require_tree .
  *= require_self
  */
+body {
+  background-color: #fbf5cd;
+   color: #065e09;
+   font-family: Arial;
+   font-size: 35px;
+   line-height: 1.5em;
+   margin: 0em;
+   text-align: center;
+
+}
+
+header {
+  padding: 10px;
+  background-color: darkred;
+  color: white;
+  font-family: Arial;
+  line-height: 2em;
+  text-align: center;
+}
+
+.header-link {
+  background-color: #fbf5cd;
+  font-size: 20px;
+  color: white;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 10px;
+}
+
+.container {
+  width: 200px;
+  height: 120px;
+}
+
+.img-container {
+  width: 50%;
+  height: auto;
+}
