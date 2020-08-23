@@ -15,6 +15,8 @@ RSpec.describe 'As a visitor' do
     @pet1 = Pet.create!(image: "https://i0.wp.com/metro.co.uk/wp-content/uploads/2018/10/sei_34729092-e1539335371430.jpg?quality=90&strip=all&zoom=1&resize=540%2C380&ssl=1", name: "snowball", approximate_age: 5, sex: "male", shelter_id: @shelter1.id)
       visit "/shelters/#{@shelter1.id}/pets"
 
+
+      expect(page).to have_css("img[src*='#{"https://i0.wp.com/metro.co.uk/wp-content/uploads/2018/10/sei_34729092-e1539335371430.jpg?quality=90&strip=all&zoom=1&resize=540%2C380&ssl=1"}']")
       expect(page).to have_content("#{@pet1.name}")
       expect(page).to have_content("#{@pet1.approximate_age}")
       expect(page).to have_content("#{@pet1.sex}")
