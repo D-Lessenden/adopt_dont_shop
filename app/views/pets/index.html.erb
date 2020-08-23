@@ -7,14 +7,12 @@
   <div class="header-link">
     <%= link_to 'Back To Home', "/" %>
     <%= link_to 'Go to Shelters', "/shelters" %>
-    <%= link_to 'Create Pet', "/shelters/#{@shelter_id}/pets/new" %>
   </div>
 
 
   <% @pets.each do |pet| %>
   <h3><a href="/pets/<%= pet.id %>"><%= pet.name %></a></h3>
   <img src="<%= pet.image %>">
-  <p>Description: <%= pet.description %></p>
   <p>Approximate age: <%= pet.approximate_age %></p>
   <p>Sex: <%= pet.sex %></p>
   <%= link_to "Shelter: #{pet.shelter.name}", "/shelters/#{pet.shelter_id}/" %><br>
