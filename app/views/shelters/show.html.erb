@@ -1,9 +1,14 @@
-<%= link_to 'Back To Home', "/" %><br>
-<%= link_to 'Go to Shelters', "/shelters" %><br>
-<%= link_to 'Go to Pets', "/pets" %><br>
+<header id="header">
+  <h1><%= @shelter.name %></h1>
+</header>
+
+<div class="header-link">
+  <%= link_to 'Back To Home', "/" %>
+  <%= link_to 'Go to Shelters', "/shelters" %>
+  <%= link_to 'Go to Pets', "/pets" %>
+</div>
 
 
-<h1><%= @shelter.name %></h1>
 <p>Address: <%= @shelter.address %></p>
 <p>City: <%= @shelter.city %></p>
 <p>State: <%= @shelter.state %></p>
