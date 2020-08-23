@@ -39,9 +39,9 @@ RSpec.describe 'As a visitor' do
 
     visit "/pets/#{@pet1.id}"
 
-    click_on "Shelter1"
+    click_on "Go to Shelters"
 
-    expect(current_path).to eq("/shelters/#{@shelter1.id}/")
+    expect(current_path).to eq("/shelters")
 
     expect(page).to have_content(@shelter1.name)
     expect(page).to have_content(@shelter1.address)

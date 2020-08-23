@@ -1,4 +1,5 @@
 class PetsController < ApplicationController
+
   def index
     if params[:shelter_id]
       @shelter_id = params[:shelter_id]

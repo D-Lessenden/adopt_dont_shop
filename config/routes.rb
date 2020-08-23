@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
 
   get '/shelters/:shelter_id/pets', to: 'shelter_pets#index'
-  post 'pets', to: 'pets#create'
+  post 'shelter_pets', to: 'pets#create'
 
 
 
