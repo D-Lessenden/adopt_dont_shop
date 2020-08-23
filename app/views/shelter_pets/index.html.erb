@@ -6,7 +6,8 @@
 
   <div class="header-link">
     <%= link_to 'Back To Home', "/" %>
-    <%= link_to 'Go to Shelters', "/shelters" %>
+    <%= link_to 'Go to Shelters', "/shelters" %><br>
+    <%= link_to 'Create Pet', "/shelters/#{@shelter_id}/pets/new" %>
   </div>
 
 
@@ -15,7 +16,6 @@
   <img src="<%= pet.image %>">
   <p>Approximate age: <%= pet.approximate_age %></p>
   <p>Sex: <%= pet.sex %></p>
-  <%= link_to "Shelter: #{pet.shelter.name}", "/shelters/#{pet.shelter_id}/" %><br>
   <br>
   <%= link_to 'Update Pet', "/pets/#{pet.id}/edit" %>
   <form action="/pets/<%= pet.id %>" method="POST">

@@ -42,7 +42,6 @@ RSpec.describe 'Create Pet' do
         expect(current_path).to eq("/shelters/#{@shelter1.id}/pets")
         expect(page).to have_css("img[src*='#{"https://i0.wp.com/metro.co.uk/wp-content/uploads/2018/10/sei_34729092-e1539335371430.jpg?quality=90&strip=all&zoom=1&resize=540%2C380&ssl=1"}']")
         expect(page).to have_content(Pet.last.name)
-        expect(page).to have_content(Pet.last.description)
         expect(page).to have_content(Pet.last.approximate_age)
         expect(page).to have_content(Pet.last.sex)
       end
