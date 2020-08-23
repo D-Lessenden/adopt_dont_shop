@@ -25,6 +25,8 @@ RSpec.describe 'Delete Shelter' do
         expect(page).to have_content(@shelter2.name)
         expect(page).to_not have_content(@shelter1.name)
 
+
+
       end
     end
   end

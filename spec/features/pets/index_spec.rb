@@ -22,6 +22,16 @@ RSpec.describe 'Pets index page' do
       expect(page).to have_content(@pet1.sex)
       expect(page).to have_content(@pet1.shelter.name)
 
+
+
+      click_link 'Update Pet'
+      expect(current_path).to eq("/pets/#{@pet1.id}/edit")
+
+      visit '/pets'
+      expect(page).to have_content(@pet1.name)
+      click_on 'Delete Pet'
+      expect(page).to_not have_content(@pet1.name)
+
       end
     end
   end
