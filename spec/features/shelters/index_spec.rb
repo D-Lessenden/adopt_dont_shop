@@ -66,3 +66,4 @@ RSpec.describe 'Shelters index page' do
   end
 
   end
+  

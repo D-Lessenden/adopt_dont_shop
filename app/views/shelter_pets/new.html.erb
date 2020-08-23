@@ -1,0 +1,25 @@
+<div class="header-link">
+  <%= link_to 'Back To Home', "/" %>
+  <%= link_to 'Go to Shelters', "/shelters" %>
+  <%= link_to 'Go to Pets', "/pets" %>
+</div>
+
+<form action="/pets" method="post">
+ <input type="hidden" name="authenticity_token" value="<#%= form_authenticity_token %>">
+ <p>Image: </p>
+ <input type='text' name='pet[image]'/><br/>
+ <p>Name: </p>
+ <input type='text' name='pet[name]'/><br/>
+ <p>Description: </p>
+ <textarea name='pet[description]'></textarea><br/><br/>
+ <p>Approximate age: </p>
+ <input type='text' name='pet[approximate_age]'/><br/>
+ <p>Sex: </p>
+ <input type='text' name='pet[sex]'/><br/>
+ <p>Shelter: </p>
+ <input type='text' name='pet[shelter_id]'/><br/>
+ <p>Adoption Status</p>
+ <input type='text' name='pet[adoption_status]'/><br/>
+ <input type='submit' name='Create Pet' value="Create Pet"/>
+
+</form>
