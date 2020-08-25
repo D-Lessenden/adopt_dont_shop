@@ -11,6 +11,7 @@ RSpec.describe 'Edit Pet' do
       it 'I can edit a field in review' do
         visit "/shelters/#{@shelter.id}"
         click_on 'Edit Review'
+        
         expect(current_path).to eq("/reviews/#{@shelter.id}/edit")
 
         fill_in 'title', with: "OtherShelter"

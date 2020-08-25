@@ -3,6 +3,7 @@
   <%= link_to 'Go to Shelters', "/shelters" %>
   <%= link_to 'Go to Pets', "/pets" %>
 </div>
+
 <form action="/shelters/<%= @review.id %>/reviews/edit" method="patch">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 <input type="hidden" name="_method" value="PATCH" />
