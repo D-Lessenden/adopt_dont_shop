@@ -8,7 +8,6 @@ RSpec.describe 'As a visitor' do
     @shelter1 = Shelter.create!(name: "Shelter1", address: "address", city: "city", state: "state", zip: 12345)
     @review = Review.create!(title: "ShelterReview1", rating: 5, content: "This app sucks", picture: "https://pyxis.nymag.com/v1/imgs/83a/2cc/b22827436c425497d88185d9dab50df8e3-10-ethel-muggs-riverdale.rsocial.w1200.jpg", shelter_id: @shelter1.id)
     visit "/shelters/#{@shelter1.id}"
-    save_and_open_page
       expect(page).to have_content(@review.title)
       expect(page).to have_content(@review.rating)
       expect(page).to have_content(@review.content)

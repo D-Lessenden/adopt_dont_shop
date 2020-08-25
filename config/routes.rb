@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post '/shelters', to: 'shelters#create'
 
   get '/shelters/:id', to: 'shelters#show'
+  get "/shelters/:shelter_id/reviews/new", to: 'reviews#new'
+  post "/shelters/:shelter_id/reviews", to: 'reviews#create'
   get '/shelters/:id/edit', to: 'shelters#edit'
   patch '/shelters/:id', to: 'shelters#update'
   delete '/shelters/:id', to: 'shelters#destroy'
@@ -16,10 +18,7 @@ Rails.application.routes.draw do
   post 'shelter_pets', to: 'pets#create'
 
 
-
-
   get '/shelters/:shelter_id/pets/new', to: 'pets#new'
-
   post '/shelters/:shelter_id/pets', to: 'pets#create'
 
 
@@ -31,7 +30,6 @@ Rails.application.routes.draw do
   get '/pets/:id/edit', to: 'pets#edit'
   patch '/pets/:id', to: 'pets#update'
   delete '/pets/:id', to: 'pets#destroy'
-
 
 
 end #need to run the db migrate command
