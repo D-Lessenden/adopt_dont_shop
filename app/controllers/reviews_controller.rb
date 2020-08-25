@@ -19,10 +19,10 @@ class ReviewsController < ApplicationController
 
   def create
     review = Review.new({
-      title: params[:review][:title],
-      rating: params[:review][:rating],
-      content: params[:review][:content],
-      picture: params[:review][:picture],
+      title: params[:title],
+      rating: params[:rating],
+      content: params[:content],
+      picture: params[:picture],
       shelter_id: params[:shelter_id]
       })
 
@@ -52,10 +52,10 @@ class ReviewsController < ApplicationController
   def update
     review = Review.find_by_id(params[:id])
     review.update({
-      title: params[:review][:title],
-      rating: params[:review][:rating],
-      content: params[:review][:content],
-      picture: params[:review][:picture],
+      title: params[:title],
+      rating: params[:rating],
+      content: params[:content],
+      picture: params[:picture],
       })
       review.save
       redirect_to "/shelters/#{review.shelter_id}"
