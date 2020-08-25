@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   post "/shelters/:shelter_id/reviews", to: 'reviews#create'
 
    get "/reviews/:id/edit", to: 'reviews#edit'
-   patch "/shelters/:shelter_id/reviews/edit", to: 'reviews#update' # i dont think this is right
+   #patch "/shelters/:shelter_id/reviews/edit", to: 'reviews#update' # i dont think this is right
+   patch "/shelters/:shelter_id", to: 'reviews#edit'
 
   get '/shelters/:id/edit', to: 'shelters#edit'
   patch '/shelters/:id', to: 'shelters#update'

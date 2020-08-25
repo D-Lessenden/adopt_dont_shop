@@ -56,7 +56,6 @@ class ReviewsController < ApplicationController
       rating: params[:review][:rating],
       content: params[:review][:content],
       picture: params[:review][:picture],
-      shelter_id: params[:shelter_id]
       })
       review.save
       redirect_to "/shelters/#{review.shelter_id}"

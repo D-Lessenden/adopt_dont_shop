@@ -11,17 +11,17 @@ RSpec.describe 'Edit Pet' do
       it 'I can edit a field in review' do
         visit "/shelters/#{@shelter.id}"
         click_on 'Edit Review'
-        
-        expect(current_path).to eq("/reviews/#{@shelter.id}/edit")
+
+        expect(current_path).to eq("/reviews/#{@review.id}/edit")
 
         fill_in 'title', with: "OtherShelter"
         fill_in 'rating', with: 3
         fill_in 'content', with: 'laksjdfalskjdf'
         fill_in 'picture', with: "https://www.creativefabrica.com/wp-content/uploads/2019/11/08/paw-print-2-title-312x208.jpg"
-
+        save_and_open_page
         click_on 'Update Review'
 
-        expect(current_path). to eq("/shelters/#{@shelter.id}")
+        expect(current_path). to eq("/shelters/#{@review.shelter_id}")
         expect(page).to have_content('OtherShelter')
         expect(page).to have_content(3)
         expect(page).to have_content('laksjdfalskjdf')

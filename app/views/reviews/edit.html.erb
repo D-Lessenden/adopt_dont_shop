@@ -4,7 +4,7 @@
   <%= link_to 'Go to Pets', "/pets" %>
 </div>
 
-<form action="/shelters/<%= @review.id %>/reviews/edit" method="patch">
+<form action="/shelters/<%= @review.shelter_id%>" method="patch">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 <input type="hidden" name="_method" value="PATCH" />
 <p>Make Your Edits!</p>
@@ -19,10 +19,10 @@
 <textarea type='text' name='content' value="<%= @review.content %>"/></textarea>
 
 <p>Picture </p>
-<input type='text' name='image' value="<%= @review.picture %>"/><br/>
+<input type='text' name='picture' value="<%= @review.picture %>"/><br/>
 
 
-<input type='submit' name="Update Pet" value="Update Pet"/>
+<input type='submit' name="Update Review" value="Update Review"/>
 </form>
 
 <!-- <form action="/pets/<#%= @pet.id %>" method="POST">
