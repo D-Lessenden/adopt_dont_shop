@@ -16,10 +16,10 @@
 
 <h3>User Reviews: </h3>
 <%= @shelter.reviews.each do |review| %>
-<ul> <%= review.title %> </ul>
-<ul> <%= review.rating %> </ul>
-<ul> <%= review.content %> </ul>
-<ul> <%=image_tag(review.picture) %> </ul>
+<ul> Title: <%= review.title %> </ul>
+<ul> Rating: <%= review.rating %> </ul>
+<ul> Message: <%= review.content %> </ul>
+<%= image_tag(review.picture, :size => "200x100")%>
 <% end %>
 
 
