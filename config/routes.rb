@@ -16,8 +16,6 @@ Rails.application.routes.draw do
   post 'shelter_pets', to: 'pets#create'
 
 
-
-
   get '/shelters/:shelter_id/pets/new', to: 'pets#new'
 
   post '/shelters/:shelter_id/pets', to: 'pets#create'
@@ -32,7 +30,6 @@ Rails.application.routes.draw do
   patch '/pets/:id', to: 'pets#update'
   delete '/pets/:id', to: 'pets#destroy'
 
-
-
+  
 end #need to run the db migrate command
   #this is the example from in class exercise rails g migration CreateSongs title:string length:integer play_count:integer
