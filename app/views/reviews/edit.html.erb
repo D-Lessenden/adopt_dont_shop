@@ -1,0 +1,31 @@
+<div class="header-link">
+  <%= link_to 'Back To Home', "/" %>
+  <%= link_to 'Go to Shelters', "/shelters" %>
+  <%= link_to 'Go to Pets', "/pets" %>
+</div>
+<form action="/shelters/<%= @review.id %>/reviews/edit" method="patch">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<input type="hidden" name="_method" value="PATCH" />
+<p>Make Your Edits!</p>
+
+<p>Title of the review: </p>
+<input type='text' name='title' value="<%= @review.title %>"/><br/>
+
+<p>Rating 1-5: </p>
+<input type='text' name='rating' value="<%= @review.rating %>"/><br/>
+
+<p>Review: </p>
+<textarea type='text' name='content' value="<%= @review.content %>"/></textarea>
+
+<p>Picture </p>
+<input type='text' name='image' value="<%= @review.picture %>"/><br/>
+
+
+<input type='submit' name="Update Pet" value="Update Pet"/>
+</form>
+
+<form action="/pets/<%= @pet.id %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"><br>
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" name="Delete Pet" value="Delete Pet"/>
+</form>

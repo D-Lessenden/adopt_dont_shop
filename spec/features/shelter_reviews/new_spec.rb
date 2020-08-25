@@ -18,12 +18,10 @@ RSpec.describe 'Create Review' do
         click_on 'Create Review'
         expect(current_path).to eq("/shelters/#{@shelter1.id}")
         expect(page).to have_content(Review.last.title)
-        save_and_open_page
-
         expect(page).to have_content(Review.last.rating)
         expect(page).to have_content(Review.last.content)
         expect(page).to have_css("img[src*='#{"https://pyxis.nymag.com/v1/imgs/83a/2cc/b22827436c425497d88185d9dab50df8e3-10-ethel-muggs-riverdale.rsocial.w1200.jpg"}']")
-        #having problem with getting default to funciton 
+        #having problem with getting default to funciton
       #  expect(page).to have_css("img[src*='#{"https://www.creativefabrica.com/wp-content/uploads/2019/11/08/paw-print-2-title-312x208.jpg"}']")
      end
     end
