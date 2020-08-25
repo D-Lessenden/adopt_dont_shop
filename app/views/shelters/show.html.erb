@@ -13,7 +13,17 @@
 <p>City: <%= @shelter.city %></p>
 <p>State: <%= @shelter.state %></p>
 <p>Zip: <%= @shelter.zip %></p>
-<p>User Reviews: <%= @shelter.reviews %></p> 
+
+<h3>User Reviews: </h3>
+<%= @shelter.reviews.each do |review| %>
+<ul> <%= review.title %> </ul>
+<ul> <%= review.rating %> </ul>
+<ul> <%= review.content %> </ul>
+<ul> <%=image_tag(review.picture) %> </ul>
+<% end %>
+
+
+
 <%= link_to 'See Your Future Pet Here!', "/shelters/#{@shelter.id}/pets" %>
 <br>
 <br>
