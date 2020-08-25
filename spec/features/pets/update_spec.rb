@@ -29,11 +29,11 @@ RSpec.describe 'Edit Pet' do
 
         expect(current_path).to eq("/pets/#{@pet1.id}/edit")
 
-        fill_in 'pet[image]', with: "https://i0.wp.com/metro.co.uk/wp-content/uploads/2018/10/sei_34729092-e1539335371430.jpg?quality=90&strip=all&zoom=1&resize=540%2C380&ssl=1"
-        fill_in 'pet[name]', with: 'qwerty'
-        fill_in 'pet[description]', with: 'laksjdfalskjdf'
-        fill_in 'pet[approximate_age]', with: 5
-        fill_in 'pet[sex]', with: "female"
+        fill_in 'image', with: "https://i0.wp.com/metro.co.uk/wp-content/uploads/2018/10/sei_34729092-e1539335371430.jpg?quality=90&strip=all&zoom=1&resize=540%2C380&ssl=1"
+        fill_in 'name', with: 'qwerty'
+        fill_in 'description', with: 'laksjdfalskjdf'
+        fill_in 'approximate_age', with: 5
+        fill_in 'sex', with: "female"
         click_on 'Update Pet'
 
         expect(current_path). to eq("/pets/#{@pet1.id}")

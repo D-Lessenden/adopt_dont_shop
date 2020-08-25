@@ -35,7 +35,7 @@ RSpec.describe 'Create Pet' do
         fill_in 'pet[description]', with: 'asljdhfaskjdhfs'
         fill_in 'pet[approximate_age]', with: 5
         fill_in 'pet[sex]', with: 'male'
-        fill_in 'pet[shelter_id]', with: "#{@shelter1.id}"
+        #fill_in 'shelter_id', with: "#{@shelter1.id}"
 
         click_on 'Create Pet'
 
