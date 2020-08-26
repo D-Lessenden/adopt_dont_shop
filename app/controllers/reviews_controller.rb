@@ -31,13 +31,8 @@ class ReviewsController < ApplicationController
         redirect_to "/shelters/#{review.shelter_id}"
       else
         flash[:alert] = "Title, rating, and content are required fields"
-        render :new
+        redirect_to "/shelters/#{review.shelter_id}/new"
       end
-
-
-
-      # review.save
-      # redirect_to "/shelters/#{review.shelter_id}"
 
   end
 
@@ -53,8 +48,15 @@ class ReviewsController < ApplicationController
       content: params[:content],
       picture: params[:picture],
       })
-      review.save
-      redirect_to "/shelters/#{review.shelter_id}"
+
+      if review.save
+        redirect_to "/shelters/#{review.shelter_id}"
+      else
+        flash[:alert] = "Title, rating, and content are required fields"
+      render :new
+      end
+  #     review.save
+  #     redirect_to "/shelters/#{review.shelter_id}"
   end
 
 

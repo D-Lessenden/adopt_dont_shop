@@ -13,11 +13,9 @@
 
     <!-- can add headers here -->
 
-    <% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
-  </div>
-  <% end %>
+    <%= flash[:alert] %>
+
+  
 
     <%= yield %>
   </body>
