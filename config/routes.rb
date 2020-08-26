@@ -8,10 +8,12 @@ Rails.application.routes.draw do
 
   get '/shelters/:id', to: 'shelters#show'
   get "/shelters/:shelter_id/reviews/new", to: 'reviews#new'
-  post "/shelters/:shelter_id/reviews", to: 'reviews#create'
+  # post "/shelters/:shelter_id/reviews", to: 'reviews#create'
+
+  post "/reviews/:shelter_id/new", to: 'reviews#create'
 
   get "/reviews/:id/edit", to: 'reviews#edit'
-  #patch "/shelters/:shelter_id/reviews/edit", to: 'reviews#update' # i dont think this is right
+  patch "/shelters/:shelter_id/reviews/edit", to: 'reviews#update' # i dont think this is right
   patch "/reviews/:id", to: 'reviews#show'
   post '/reviews/:id', to: 'reviews#update'
   get '/shelters/:id/edit', to: 'shelters#edit'

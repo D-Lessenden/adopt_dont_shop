@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+
     review = Review.new({
       title: params[:title],
       rating: params[:rating],
@@ -26,22 +27,17 @@ class ReviewsController < ApplicationController
       shelter_id: params[:shelter_id]
       })
 
-      review.save
-      redirect_to "/shelters/#{review.shelter_id}"
+      if review.save
+        redirect_to "/shelters/#{review.shelter_id}"
+      else
+        flash[:alert] = "Title, rating, and content are required fields"
+        render :new
+      end
 
-    # if !review.save
-    #   flash[:alert] = "All fields are required except for picture"
-    #   render :new
-    # else
-    # redirect_to "/shelters/#{review.shelter_id}"
-    # end
 
-    # review = Review.create(review_params)
-    # if review.valid?
-    #   redirect_to "/shelters/#{review.shelter_id}"
-    # else
-    #   flash[:errors] = review.errors.full_messages
-    # end
+
+      # review.save
+      # redirect_to "/shelters/#{review.shelter_id}"
 
   end
 

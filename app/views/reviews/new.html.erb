@@ -5,16 +5,14 @@
 </div>
 
 
-<form action="/shelters/<%= @shelter_id %>/reviews" method="post">
- <input type="hidden" name="authenticity_token" value="<#%= form_authenticity_token %>">
- <p>Title of the review: </p>
- <input type='text' name='review[title]'><br/>
- <p>Rating 1-5: </p>
- <input type='text' name='review[rating]'><br/>
- <p>Review: </p>
- <textarea name='review[content]'></textarea><br/><br/>
- <p>Picture (optional): </p>
- <input type='text' name='review[picture]'/><br/>
- <input type='submit' name='Create Review' value="Create Review"/>
-
-</form>
+<%= form_tag "/reviews/#{@shelter_id}/new" do %>
+  <%= label_tag 'title' %><br/>
+  <%= text_field_tag :title %><br/>
+  <%= label_tag 'Rating 1-5' %><br/>
+  <%= text_field_tag :rating %><br/>
+  <%= label_tag 'Content' %><br/>
+  <%= text_field_tag :content %><br/>
+  <%= label_tag 'Picture (Optional)' %><br/>
+  <%= text_field_tag :picture %><br/>
+  <%= submit_tag "Create Review" %>
+<% end %>
