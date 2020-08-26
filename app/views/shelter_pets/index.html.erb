@@ -3,11 +3,8 @@
     <h1>Pets</h1>
   </header>
 
-  <div class="header-link">
-    <%= link_to 'Back To Home', "/" %>
-    <%= link_to 'Go to Shelters', "/shelters" %><br>
+
     <%= link_to 'Create Pet', "/shelters/#{@shelter_id}/pets/new" %>
-  </div>
 
 
   <% @pets.each do |pet| %>

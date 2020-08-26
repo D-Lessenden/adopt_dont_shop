@@ -1,8 +1,3 @@
-<div class="header-link">
-  <%= link_to 'Back To Home', "/" %>
-  <%= link_to 'Go to Shelters', "/shelters" %>
-  <%= link_to 'Go to Pets', "/pets" %>
-</div>
 
 <form action="/shelters/<%= @shelter_id %>/pets" method="post">
  <input type="hidden" name="authenticity_token" value="<#%= form_authenticity_token %>">

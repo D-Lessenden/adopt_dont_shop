@@ -11,8 +11,18 @@
   </head>
 
   <body>
+<header>
+  <div class="nav-bar">
+    <ul>
+      <p><%= link_to "Back to Home", "/" %>
+        <%= link_to "Go to Shelters", "/shelters" %>
+        <%= link_to 'Go to Pets', "/pets" %>
+      </p>
 
-    <!-- can add headers here -->
+    </ul>
+  </div>
+</header>
+
 
     <%= flash[:alert] %>
 
