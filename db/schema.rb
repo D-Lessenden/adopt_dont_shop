@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 2020_08_25_020319) do
     t.index ["shelter_id"], name: "index_reviews_on_shelter_id"
   end
 
+  create_table "shelter_reviews", force: :cascade do |t|
+    t.string "title"
+    t.integer "rating"
+    t.string "content"
+    t.string "picture"
+  end
+
   create_table "shelters", force: :cascade do |t|
     t.string "name"
     t.string "address"
