@@ -18,7 +18,6 @@ class ReviewsController < ApplicationController
   end
 
   def create
-
     review = Review.new({
       title: params[:title],
       rating: params[:rating],
@@ -31,7 +30,7 @@ class ReviewsController < ApplicationController
         redirect_to "/shelters/#{review.shelter_id}"
       else
         flash[:alert] = "Title, rating, and content are required fields"
-        redirect_to "/shelters/#{review.shelter_id}/new"
+        redirect_to "/shelters/#{review.shelter_id}/reviews/new"
       end
 
   end
@@ -41,7 +40,7 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    review = Review.find_by_id(params[:id])
+    review = Review.find(params[:id])
     review.update({
       title: params[:title],
       rating: params[:rating],
@@ -53,10 +52,8 @@ class ReviewsController < ApplicationController
         redirect_to "/shelters/#{review.shelter_id}"
       else
         flash[:alert] = "Title, rating, and content are required fields"
-      render :new
+        redirect_to "/reviews/#{review.id}/edit"
       end
-  #     review.save
-  #     redirect_to "/shelters/#{review.shelter_id}"
   end
 
 
