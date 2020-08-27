@@ -9,7 +9,14 @@
 <p>Sex: <%= @pet.sex %></p>
 
 <p>Adoption Status: <%= @pet.adoption_status %></p>
+<br>
 
+
+<%# button_to 'Add to Favorites', "/favorites?pet_id=#{@pet.id}", method:"patch" %>
+<%# <%= button_to 'Add to Favorites', "/favorites", params:{pet_id: @pet.id}, method:"patch" %>
+<%= button_to 'Add to Favorites', favorite_path(pet_id: @pet.id), method: :patch %>
+
+<br>
 <%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %>
 
  <form action="/pets/<%= @pet.id %>" method="POST">

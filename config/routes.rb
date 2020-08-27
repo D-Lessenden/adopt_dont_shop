@@ -41,6 +41,9 @@ Rails.application.routes.draw do
   patch '/pets/:id', to: 'pets#update'
   delete '/pets/:id', to: 'pets#destroy'
 
+  #patch "/favorites", to: "favorites#update"
+  resources :favorites #, only: [:update, :index]
+
 
 end #need to run the db migrate command
   #this is the example from in class exercise rails g migration CreateSongs title:string length:integer play_count:integer

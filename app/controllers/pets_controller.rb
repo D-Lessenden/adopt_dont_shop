@@ -49,27 +49,29 @@ class PetsController < ApplicationController
       approximate_age: params[:approximate_age],
       sex: params[:sex],
       shelter_id: params[:shelter_id],
-      adoption_status: params[:adoption_status]
-
+      adoption_status: params[:adoption_status],
+      favorite: params[:favorite]
       })
     pet.save
     redirect_to "/pets/#{pet.id}"
+
   end
+
 
   def destroy
     Pet.destroy(params[:id])
     redirect_to '/pets'
   end
 
-  def favorite_count
-    @pets.each do |pet|
-          count = 0
-        if pet.favorite == true
-          count += 1
-        end
-          count
-        end
-  end
+  # def favorite_count
+  #   count = 0
+  #   @pets.each do |pet|
+  #     if pet.favorite == true
+  #       count += 1
+  #     end
+  #       count
+  #     end
+  # end
 
   # private
   # def pet_params
