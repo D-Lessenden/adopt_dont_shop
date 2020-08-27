@@ -39,7 +39,7 @@ RSpec.describe 'As a visitor' do
           visit "/pets/#{@pet1.id}"
           click_button("Add to Favorites", match: :first)
           save_and_open_page
-          expect(page).to have_content("Added to Favorites")
+          expect(page).to have_content("Added to favorites")
         end
       end
     end
