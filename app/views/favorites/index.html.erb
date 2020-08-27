@@ -1,0 +1,3 @@
+<% @pets.each do |pet| %>
+<h3><a href="/pets/<%= pet.id %>"><%= pet.name %></a></h3>
+<%= image_tag(pet.image, :size => "200x100")%>
