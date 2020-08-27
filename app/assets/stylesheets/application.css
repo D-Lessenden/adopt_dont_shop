@@ -40,6 +40,20 @@ header {
 
 }
 
+.nav-bar {
+  font-family: Arial;
+  background-color: darkred;
+  color: white;
+  text-align: left;
+  font-size: 20px;
+  padding: 0px;
+
+
+
+
+
+}
+
 * {
   box-sizing: border-box;
 }

@@ -2,15 +2,6 @@
     <h1>Shelters</h1>
 </header>
 
-<div class="header-link">
-  <%= link_to 'Back To Home', "/" %>
-  <%= link_to 'Go to Pets', "/pets" %>
-</div>
-<%= link_to "New Shelter", "/shelters/new" %><br>
-
-
-
-
   <% @shelters.each do |shelter| %>
   <h3><a href="/shelters/<%= shelter.id %>"><%= shelter.name %></a></h3>
 

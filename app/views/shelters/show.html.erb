@@ -2,17 +2,23 @@
   <h1><%= @shelter.name %></h1>
 </header>
 
-<div class="header-link">
-  <%= link_to 'Back To Home', "/" %>
-  <%= link_to 'Go to Shelters', "/shelters" %>
-  <%= link_to 'Go to Pets', "/pets" %>
-</div>
-
-
 <p>Address: <%= @shelter.address %></p>
 <p>City: <%= @shelter.city %></p>
 <p>State: <%= @shelter.state %></p>
 <p>Zip: <%= @shelter.zip %></p>
+
+<h3>User Reviews: </h3>
+<% @shelter.reviews.each do |review| %>
+<ul> Title: <%= review.title %> </ul>
+<ul> Rating: <%= review.rating %> </ul>
+<ul> Message: <%= review.content %> </ul>
+<%= image_tag(review.picture, :size => "200x100")%><br>
+<%= link_to 'Edit Review', "/reviews/#{review.id}/edit" %><br>
+<% end %>
+
+
+<%= link_to 'Create a Review', "/shelters/#{@shelter.id}/reviews/new" %><br>
+
 <%= link_to 'See Your Future Pet Here!', "/shelters/#{@shelter.id}/pets" %>
 <br>
 <br>

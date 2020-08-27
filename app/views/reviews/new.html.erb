@@ -1,0 +1,12 @@
+
+<%= form_tag "/reviews/#{@shelter_id}/new" do %>
+  <%= label_tag 'title' %><br/>
+  <%= text_field_tag :title %><br/>
+  <%= label_tag 'Rating 1-5' %><br/>
+  <%= text_field_tag :rating %><br/>
+  <%= label_tag 'Content' %><br/>
+  <%= text_field_tag :content %><br/>
+  <%= label_tag 'Picture (Optional)' %><br/>
+  <%= text_field_tag :picture %><br/>
+  <%= submit_tag "Create Review" %>
+<% end %>

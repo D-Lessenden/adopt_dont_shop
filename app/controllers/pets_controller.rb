@@ -30,6 +30,7 @@ class PetsController < ApplicationController
 
       })
     pet.save
+
     redirect_to "/shelters/#{pet.shelter_id}/pets"
   end
 
@@ -58,6 +59,16 @@ class PetsController < ApplicationController
   def destroy
     Pet.destroy(params[:id])
     redirect_to '/pets'
+  end
+
+  def favorite_count
+    @pets.each do |pet|
+          count = 0
+        if pet.favorite == true
+          count += 1
+        end
+          count
+        end
   end
 
   # private

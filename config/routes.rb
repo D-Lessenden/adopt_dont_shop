@@ -1,14 +1,25 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/', to: 'welcome#index'
-
   get '/shelters', to: 'shelters#index'
+
   get '/shelters/new', to: 'shelters#new'
   post '/shelters', to: 'shelters#create'
 
   get '/shelters/:id', to: 'shelters#show'
+  get "/shelters/:shelter_id/reviews/new", to: 'reviews#new'
+  # post "/shelters/:shelter_id/reviews", to: 'reviews#create'
+
+  post "/reviews/:shelter_id/new", to: 'reviews#create'
+
+  get "/reviews/:id/edit", to: 'reviews#edit'
+  # patch "/shelters/:shelter_id/reviews/edit", to: 'reviews#update' # i dont think this is right
+  # patch "/reviews/:id", to: 'reviews#show'
+  post '/reviews/:id', to: 'reviews#update'
   get '/shelters/:id/edit', to: 'shelters#edit'
   patch '/shelters/:id', to: 'shelters#update'
+
+
   delete '/shelters/:id', to: 'shelters#destroy'
 
 
@@ -16,10 +27,7 @@ Rails.application.routes.draw do
   post 'shelter_pets', to: 'pets#create'
 
 
-
-
   get '/shelters/:shelter_id/pets/new', to: 'pets#new'
-
   post '/shelters/:shelter_id/pets', to: 'pets#create'
 
 
@@ -31,7 +39,6 @@ Rails.application.routes.draw do
   get '/pets/:id/edit', to: 'pets#edit'
   patch '/pets/:id', to: 'pets#update'
   delete '/pets/:id', to: 'pets#destroy'
-
 
 
 end #need to run the db migrate command
