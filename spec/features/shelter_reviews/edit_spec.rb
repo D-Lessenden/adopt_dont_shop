@@ -26,9 +26,6 @@ RSpec.describe 'Edit Reviews' do
         expect(page).to have_content(3)
         expect(page).to have_content('laksjdfalskjdf')
         expect(page).to have_css("img[src*='#{"https://www.creativefabrica.com/wp-content/uploads/2019/11/08/paw-print-2-title-312x208.jpg"}']")
-
-
-
       end
     end
   end
