@@ -1,3 +1,6 @@
 <% @pets.each do |pet| %>
-<h3><a href="/pets/<%= pet.id %>"><%= pet.name %></a></h3>
-<%= image_tag(pet.image, :size => "200x100")%>
+  <% if pet.favorite == true %>
+    <ul><%= link_to "#{pet.name}",  "/pets/#{pet.id}"%></ul>
+    <ul><%= image_tag("/pets/#{pet.image}", :size => "200x100")%></ul>
+  <% end %>
+<% end %>

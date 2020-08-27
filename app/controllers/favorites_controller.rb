@@ -1,5 +1,12 @@
 class FavoritesController < ApplicationController
-
+  def index
+    if params[:favorite]
+      @favorite = params[:favorite]
+     @pets = Pet.where favorite: params[:favorite]
+     else
+      @pets = Pet.all
+     end
+  end
 
   def update
     pet = Pet.find(params[:pet_id])
