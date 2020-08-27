@@ -5,6 +5,7 @@ class Pet < ApplicationRecord
 
   def set_defaults
     self.adoption_status ||= "Adoptable"
+    self.favorite ||= false 
   end
 
 end

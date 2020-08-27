@@ -1,18 +1,20 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/', to: 'welcome#index'
-
   get '/shelters', to: 'shelters#index'
+
   get '/shelters/new', to: 'shelters#new'
   post '/shelters', to: 'shelters#create'
 
   get '/shelters/:id', to: 'shelters#show'
   get "/shelters/:shelter_id/reviews/new", to: 'reviews#new'
-  post "/shelters/:shelter_id/reviews", to: 'reviews#create'
+  # post "/shelters/:shelter_id/reviews", to: 'reviews#create'
+
+  post "/reviews/:shelter_id/new", to: 'reviews#create'
 
   get "/reviews/:id/edit", to: 'reviews#edit'
-  #patch "/shelters/:shelter_id/reviews/edit", to: 'reviews#update' # i dont think this is right
-  patch "/reviews/:id", to: 'reviews#show'
+  # patch "/shelters/:shelter_id/reviews/edit", to: 'reviews#update' # i dont think this is right
+  # patch "/reviews/:id", to: 'reviews#show'
   post '/reviews/:id', to: 'reviews#update'
   get '/shelters/:id/edit', to: 'shelters#edit'
   patch '/shelters/:id', to: 'shelters#update'

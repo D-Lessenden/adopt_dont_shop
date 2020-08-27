@@ -26,11 +26,28 @@ RSpec.describe 'Edit Reviews' do
         expect(page).to have_content(3)
         expect(page).to have_content('laksjdfalskjdf')
         expect(page).to have_css("img[src*='#{"https://www.creativefabrica.com/wp-content/uploads/2019/11/08/paw-print-2-title-312x208.jpg"}']")
-      
-
-
-
       end
     end
   end
+
+  describe 'As a visitor' do
+    describe "when I don't fill in all required fields a see a flash message" do
+      describe "And I am returned to the create review form" do
+        it "can click new review" do
+          visit "/shelters/#{@shelter.id}"
+          click_on 'Edit Review'
+
+          fill_in 'title', with: "Title", visible: false
+          fill_in 'rating', with: "4", visible: false
+          click_on 'Update Review'
+          expect(page).to have_content("Title, rating, and content are required fields")
+
+        end
+      end
+    end
+  end
+
+
+
+
 end

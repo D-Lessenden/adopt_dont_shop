@@ -26,22 +26,12 @@ class ReviewsController < ApplicationController
       shelter_id: params[:shelter_id]
       })
 
-      review.save
-      redirect_to "/shelters/#{review.shelter_id}"
-
-    # if !review.save
-    #   flash[:alert] = "All fields are required except for picture"
-    #   render :new
-    # else
-    # redirect_to "/shelters/#{review.shelter_id}"
-    # end
-
-    # review = Review.create(review_params)
-    # if review.valid?
-    #   redirect_to "/shelters/#{review.shelter_id}"
-    # else
-    #   flash[:errors] = review.errors.full_messages
-    # end
+      if review.save
+        redirect_to "/shelters/#{review.shelter_id}"
+      else
+        flash[:alert] = "Title, rating, and content are required fields"
+        redirect_to "/shelters/#{review.shelter_id}/reviews/new"
+      end
 
   end
 
@@ -50,15 +40,20 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    review = Review.find_by_id(params[:id])
+    review = Review.find(params[:id])
     review.update({
       title: params[:title],
       rating: params[:rating],
       content: params[:content],
       picture: params[:picture],
       })
-      review.save
-      redirect_to "/shelters/#{review.shelter_id}"
+
+      if review.save
+        redirect_to "/shelters/#{review.shelter_id}"
+      else
+        flash[:alert] = "Title, rating, and content are required fields"
+        redirect_to "/reviews/#{review.id}/edit"
+      end
   end
 
 
