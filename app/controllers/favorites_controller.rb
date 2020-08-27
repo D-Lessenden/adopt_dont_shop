@@ -13,6 +13,7 @@ class FavoritesController < ApplicationController
 
     if pet.favorite
       pet.favorite = false
+      flash[:notice] = "Removed from favorites"
     else
       pet.favorite = true
       flash[:notice] = "Added to favorites"

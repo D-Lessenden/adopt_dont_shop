@@ -2,5 +2,7 @@
   <% if pet.favorite == true %>
     <ul><%= link_to "#{pet.name}",  "/pets/#{pet.id}"%></ul>
     <ul><%= image_tag("/pets/#{pet.image}", :size => "200x100")%></ul>
+    <!-- this will be different because it will delete the pet, requires a different route -->
+    <%= button_to 'Remove from Favorites', "favorites/#{pet.id}", method: :patch %>
+    <% end %>
   <% end %>
-<% end %>

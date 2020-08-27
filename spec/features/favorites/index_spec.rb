@@ -26,5 +26,13 @@ RSpec.describe 'Favorites index page' do
 
     expect(page).to have_content(@pet1.name)
     expect(page).to have_no_content(@pet2.name)
-  end 
+  end
+
+  it "has a link on the navbar to go to Faorites" do
+    visit '/pets'
+    click_link "Favorites"
+    expect(current_path).to eq("/favorites")
+end
+
+
 end
