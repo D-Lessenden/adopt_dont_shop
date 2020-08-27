@@ -8,25 +8,27 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <!-- put nav bad here -->
+
+
+    <header>
+      <div class="nav-bar">
+        <ul>
+          <p><%= link_to "Back to Home", "/" %>
+            <%= link_to "Go to Shelters", "/shelters" %>
+            <%= link_to 'Go to Pets', "/pets" %>
+            <%= "Favorites: #{@pets.favorite_count}" %>
+          
+          </p>
+
+        </ul>
+      </div>
+    </header>
+
   </head>
 
   <body>
-<header>
-  <div class="nav-bar">
-    <ul>
-      <p><%= link_to "Back to Home", "/" %>
-        <%= link_to "Go to Shelters", "/shelters" %>
-        <%= link_to 'Go to Pets', "/pets" %>
-      </p>
-
-    </ul>
-  </div>
-</header>
-
 
     <%= flash[:alert] %>
-
-
 
     <%= yield %>
   </body>
