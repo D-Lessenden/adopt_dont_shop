@@ -26,6 +26,10 @@ class FavoritesController < ApplicationController
     redirect_to "/pets/#{@pet.id}"
   end
 
+  def destroy_all
+    session[:favorite].clear
+  end
+
 
 end
 

@@ -54,7 +54,6 @@ RSpec.describe 'As a visitor' do
         visit "/pets/#{@pet1.id}"
         click_button("Add to Favorites", match: :first)
         expect(current_path).to eq("/pets/#{@pet1.id}")
-        save_and_open_page
         click_button("Remove from Favorites", match: :first)
         expect(page).to have_content("Removed from favorites")
       end
