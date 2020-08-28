@@ -12,14 +12,12 @@
 <br>
 
 
-<%# button_to 'Add to Favorites', "/favorites?pet_id=#{@pet.id}", method:"patch" %>
-<%# <%= button_to 'Add to Favorites', "/favorites", params:{pet_id: @pet.id}, method:"patch" %>
-
 <% if @pet.favorite == false %>
 <%= button_to 'Add to Favorites', favorite_path(pet_id: @pet.id), method: :patch %>
 <% else @pet.favorite == true %>
 <%= button_to 'Remove from Favorites', favorite_path(pet_id: @pet.id), method: :patch %>
 <% end %>
+
 
 <br>
 <%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %>
