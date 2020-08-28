@@ -11,13 +11,11 @@
 <p>Adoption Status: <%= @pet.adoption_status %></p>
 <br>
 
-
-<% if @pet.favorite == false %>
+<% if session[:favorite] == nil || session[:favorite].include?(@pet.id.to_s) == false %>
 <%= button_to 'Add to Favorites', favorite_path(pet_id: @pet.id), method: :patch %>
-<% else @pet.favorite == true %>
-<%= button_to 'Remove from Favorites', favorite_path(pet_id: @pet.id), method: :patch %>
+<% else session[:favorite].include?(@pet.id.to_s) == true %>
+<%= button_to 'Remove from Favorites', favorite_path(pet_id: @pet.id), method: :delete %>
 <% end %>
-
 
 <br>
 <%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %>
