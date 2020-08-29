@@ -1,7 +1,6 @@
+<% if session[:favorite].count > 0 %>
+<%= button_to 'Remove All From Favorites', "/favorites/delete_all", method: :delete_all %>
 
-<% if session[:favorite] == nil %>
-  <%= "You have no favorited pets" %>
-<% elsif session[:favorite] != nil %>
   <% @pets.each do |pet|%>
     <% if session[:favorite].include?("#{pet.id}")%>
     <ul><%= link_to "#{pet.name}",  "/pets/#{pet.id}"%></ul>
@@ -10,7 +9,12 @@
     <% end %>
 
   <% end  %>
-  <%= button_to 'Remove All From Favorites', "/favorites/delete_all", method: :delete_all %>
+
+
+
+<% else %>
+  <%= p "You have no favorited pets" %>
+
 <% end  %>
 
 
