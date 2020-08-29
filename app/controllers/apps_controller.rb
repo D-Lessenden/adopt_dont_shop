@@ -1,4 +1,4 @@
-class AppsController < ApplicationController
+ class AppsController < ApplicationController
   def index
     if params[:App]
       @App = params[:App]
@@ -13,6 +13,8 @@ class AppsController < ApplicationController
   end
 
   def create
+    require "pry"
+    binding.pry
     app = App.new({
       name: params[:name],
       address: params[:address],
@@ -20,8 +22,7 @@ class AppsController < ApplicationController
       state: params[:state],
       zip: params[:zip],
       phone_number: params[:phone_number],
-      description: params[:description],
-      pet_id: params[:pet_id]
+      description: params[:description]
       })
       # app.save
       # redirect_to "/favorites"

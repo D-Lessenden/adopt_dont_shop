@@ -41,10 +41,14 @@ RSpec.describe 'New application page' do
     fill_in 'phone_number', with: "Test"
     fill_in 'description', with: "Test"
 
+    check "adopt_pet_id_#{@pet1.id}"
+    check "adopt_pet_id_#{@pet2.id}"
+
     click_button "Submit Application"
 
-
     expect(page).to have_content("Your application has been submitted")
+    require "pry"
+    binding.pry
 
 
 
@@ -74,7 +78,7 @@ RSpec.describe 'New application page' do
     expect(page).to have_content("All fields are required")
   end
 
-  it "redircts back to the favorites page" do
+  it "redirects back to the favorites page" do
     @shelter1 = Shelter.create!(name: "Shelter1", address: "address", city: "city", state: "state", zip: 12345)
     @pet1 = Pet.create!(image: "https://i0.wp.com/metro.co.uk/wp-content/uploads/2018/10/sei_34729092-e1539335371430.jpg?quality=90&strip=all&zoom=1&resize=540%2C380&ssl=1", name: "snowball", approximate_age: 5, sex: "male", shelter_id: @shelter1.id)
     @pet2 = Pet.create!(image: "https://i0.wp.com/metro.co.uk/wp-content/uploads/2018/10/sei_34729092-e1539335371430.jpg?quality=90&strip=all&zoom=1&resize=540%2C380&ssl=1", name: "fireball", approximate_age: 5, sex: "male", shelter_id: @shelter1.id)
@@ -101,3 +105,18 @@ RSpec.describe 'New application page' do
 #add in model testing.
 #add column for pet.id in the app table
 end
+
+# User Story 16, Applying for a Pet
+
+# At the top of the form, I can select from the pets of which I've favorited for which I'd like this application to apply towards (can be more than one)
+# When I select one or more pets, and fill in my
+# - Name
+# - Address
+# - City
+# - State
+# - Zip
+# - Phone Number
+# - Description of why I'd make a good home for this/these pet(s)
+# And I click on a button to submit my application
+# I see a flash message indicating my application went through for the pets that were selected
+# And I'm taken back to my favorites page where I no longer see the pets for which I just applied listed as favorites
