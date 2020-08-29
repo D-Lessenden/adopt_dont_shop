@@ -1,10 +1,10 @@
 <% @pets.each do |pet|%>
   <% if session[:favorite].include?("#{pet.id}")%>
-  <ul><%# link_to "#{pet.name}",  "/pets/#{pet.id}"%></ul>
-  <ul><%# image_tag("/pets/#{pet.image}", :size => "200x100")%></ul>
-  <%# check_box_tag("Adopt me!", pet.id) %>
-  <%# label_tag "Adopt me!" %>
-  <h3 id=<%="checked_field-#{pet.id}"%>><%= check_box_tag "#{pet.id}", "#{pet.name}"%> <%= pet.name %></h3>
+  <ul><% link_to "#{pet.name}",  "/pets/#{pet.id}"%></ul>
+  <ul><%= image_tag("/pets/#{pet.image}", :size => "200x100")%></ul>
+  <%= check_box_tag("Adopt me!", pet.id, false) %>
+  <%= label_tag "Adopt me!" %>
+  <!-- <h3 id=<%#{}"checked_field-#{pet.id}"%>><%# check_box_tag "#{pet.id}", "#{pet.name}"%> <%# pet.name %></h3> -->
   <% end %>
 <% end  %>
 
@@ -34,4 +34,5 @@
 
 
   <%= submit_tag "Submit Application" %>
+
 <% end %>
