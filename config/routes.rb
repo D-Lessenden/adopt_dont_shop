@@ -43,6 +43,9 @@ Rails.application.routes.draw do
 
   #patch "/favorites", to: "favorites#update"
   resources :favorites #, only: [:update, :index]
+  delete "/favorites", to: "favorites#delete"
+  post "/favorites/delete_all", to: "favorites#delete_all"
+  delete "/favorites", to: "favorites#destroy_all"
 
 
 end #need to run the db migrate command

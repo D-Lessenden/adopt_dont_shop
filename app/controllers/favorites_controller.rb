@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
   def index
     if params[:favorite]
       @favorite = params[:favorite]
-     @pets = Pet.where favorite: params[:favorite]
+      @pets = Pet.where favorite: params[:favorite]
      else
       @pets = Pet.all
      end
@@ -26,9 +26,23 @@ class FavoritesController < ApplicationController
     redirect_to "/pets/#{@pet.id}"
   end
 
-  def destroy_all
-    session[:favorite].clear
+  def delete
+    @pet = Pet.find(params[:pet_id])
+    session[:favorite].delete("#{@pet.id}")
+    flash[:notice] = "Removed from favorites"
+    redirect_to "/favorites"
   end
+
+
+  def delete_all
+    session[:favorite].clear
+    redirect_to "/favorites"
+
+  end
+
+
+
+
 
 
 end
