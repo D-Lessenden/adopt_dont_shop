@@ -48,5 +48,7 @@ Rails.application.routes.draw do
   delete "/favorites", to: "favorites#destroy_all"
 
 
+resources :apps
+
 end #need to run the db migrate command
   #this is the example from in class exercise rails g migration CreateSongs title:string length:integer play_count:integer

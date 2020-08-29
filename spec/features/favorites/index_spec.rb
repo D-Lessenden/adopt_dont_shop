@@ -38,10 +38,10 @@ RSpec.describe 'Favorites index page' do
     # expect(current_path).to eq("/favorites")
 end
 
-  it "returns the message 'You have no favorited pets' when no pets on index page" do
-    visit '/favorites'
-    expect(page).to have_content('You have no favorited pets')
-  end
+  # it "returns the message 'You have no favorited pets' when no pets on index page" do
+  #   visit '/favorites'
+  #   expect(page).to have_content('You have no favorited pets')
+  # end
 
   it "can delete pets on the favorite page " do
 
@@ -89,5 +89,21 @@ end
     expect(page).to have_content('You have no favorited pets')
 
   end
+
+  describe "it has a link for adopting my favorited pets" do
+    it "When I click that link I'm taken to a new application form" do
+      @shelter1 = Shelter.create!(name: "Shelter1", address: "address", city: "city", state: "state", zip: 12345)
+      @pet1 = Pet.create!(image: "https://i0.wp.com/metro.co.uk/wp-content/uploads/2018/10/sei_34729092-e1539335371430.jpg?quality=90&strip=all&zoom=1&resize=540%2C380&ssl=1", name: "snowball", approximate_age: 5, sex: "male", shelter_id: @shelter1.id)
+      visit "/pets/#{@pet1.id}"
+      click_button("Add to Favorites", match: :first)
+      visit '/favorites'
+
+      click_link "New Application"
+
+      expect(current_path).to eq("/apps")
+    end
+  end
+
+
 
 end
