@@ -16,7 +16,12 @@
           <p><%= link_to "Back to Home", "/" %>
             <%= link_to "Go to Shelters", "/shelters" %>
             <%= link_to 'Go to Pets', "/pets" %>
-            
+            <%= link_to 'Favorites', "/favorites" %>
+            <% if session[:favorite] == nil %>
+            <%= "0" %>
+            <% else %>
+            <%= "#{session[:favorite].count}" %>
+            <% end %>
 
           </p>
 
@@ -29,6 +34,7 @@
   <body>
 
     <%= flash[:alert] %>
+    <%= flash[:notice] %>
 
     <%= yield %>
   </body>

@@ -1,0 +1,29 @@
+<% if session[:favorite].count > 0 %>
+<%= link_to 'New Application', "/apps/new" %>
+<%= button_to 'Remove All From Favorites', "/favorites/delete_all", method: :delete_all %>
+
+  <% @pets.each do |pet|%>
+    <% if session[:favorite].include?("#{pet.id}")%>
+    <ul><%= link_to "#{pet.name}",  "/pets/#{pet.id}"%></ul>
+    <ul><%= image_tag("/pets/#{pet.image}", :size => "200x100")%></ul>
+
+    <%= button_to 'Remove from Favorites', "/favorites?pet_id=#{pet.id}", method: :delete %>
+    <% end %>
+
+  <% end  %>
+
+
+
+<% else %>
+  <%= p "You have no favorited pets" %>
+
+<% end  %>
+
+
+
+
+
+<!-- NEED TO DO STORY 13 AND 15 -->
+<!-- ADD VALIDATES_PRESENCE_OF FOR SHELTER AND PETS -->
+<!-- ADD FLASH MESSAGES FOR THE ABOVE-->
+<!-- NEED TEST FOR POROS -->
