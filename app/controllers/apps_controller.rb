@@ -21,16 +21,19 @@ class AppsController < ApplicationController
       phone_number: params[:phone_number],
       description: params[:description]
       })
+
+      redirect_to "/favorites"
+      binding.pry 
   end
 
-  def update
-    @pet = Pet.find(params[:pet_id])
-    app = App.new(session[:app])
-    app.add_pet(@pet)
-    session[:app] = app.fav_list
-    #flash[:notice] = "Added to favorites"
-    #redirect_to "/pets/#{@pet.id}"
-  end
+  # def update
+  #   @pet = Pet.find(params[:pet_id])
+  #   app = App.new(session[:app])
+  #   app.add_pet(@pet)
+  #   session[:app] = app.fav_list
+  #   #flash[:notice] = "Added to favorites"
+  #   #redirect_to "/pets/#{@pet.id}"
+  # end
 
 
 end
