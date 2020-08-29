@@ -100,7 +100,7 @@ end
 
       click_link "New Application"
 
-      expect(current_path).to eq("/apps")
+      expect(current_path).to eq("/apps/new")
     end
   end
 

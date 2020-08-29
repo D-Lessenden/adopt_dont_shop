@@ -9,6 +9,7 @@ class AppsController < ApplicationController
   end
 
   def new
+    @pets = Pet.all
   end
 
   def create
@@ -21,9 +22,8 @@ class AppsController < ApplicationController
       phone_number: params[:phone_number],
       description: params[:description]
       })
-
+      app.save
       redirect_to "/favorites"
-      binding.pry 
   end
 
   # def update

@@ -1,5 +1,5 @@
 <% if session[:favorite].count > 0 %>
-<%= link_to 'New Application', "/apps" %>
+<%= link_to 'New Application', "/apps/new" %>
 <%= button_to 'Remove All From Favorites', "/favorites/delete_all", method: :delete_all %>
 
   <% @pets.each do |pet|%>
