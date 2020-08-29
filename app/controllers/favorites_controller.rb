@@ -36,6 +36,8 @@ class FavoritesController < ApplicationController
 
   def delete_all
     session[:favorite].clear
+    flash[:notice] = "Everyone Removed"
+
     redirect_to "/favorites"
 
   end

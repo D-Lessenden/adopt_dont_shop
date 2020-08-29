@@ -40,7 +40,6 @@ end
 
   it "returns the message 'You have no favorited pets' when no pets on index page" do
     visit '/favorites'
-    save_and_open_page
     expect(page).to have_content('You have no favorited pets')
   end
 
@@ -56,7 +55,6 @@ end
 
 
     visit '/favorites'
-    save_and_open_page
     click_button("Remove from Favorites", match: :first)
 
 
@@ -86,8 +84,9 @@ end
     click_button 'Remove All From Favorites'
     expect(page).to have_no_content(@pet1.name)
     expect(page).to have_no_content(@pet2.name)
+    visit '/favorites'
 
-    #expect(page).to have_content('You have no favorited pets')
+    expect(page).to have_content('You have no favorited pets')
 
   end
 

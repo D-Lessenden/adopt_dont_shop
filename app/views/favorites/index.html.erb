@@ -1,6 +1,7 @@
+
 <% if session[:favorite] == nil %>
   <%= "You have no favorited pets" %>
-<% else %>
+<% elsif session[:favorite] != nil %>
   <% @pets.each do |pet|%>
     <% if session[:favorite].include?("#{pet.id}")%>
     <ul><%= link_to "#{pet.name}",  "/pets/#{pet.id}"%></ul>
