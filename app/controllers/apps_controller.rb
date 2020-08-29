@@ -22,8 +22,19 @@ class AppsController < ApplicationController
       phone_number: params[:phone_number],
       description: params[:description]
       })
-      app.save
-      redirect_to "/favorites"
+      # app.save
+      # redirect_to "/favorites"
+      if app.save
+        flash[:notice] = "Your application has been submitted"
+          # @pets.each do |pet|
+          #   pet.
+          # end
+
+        redirect_to "/favorites"
+      else
+        flash[:alert] = "All fields are required"
+        redirect_to "/apps/new"
+      end
   end
 
   # def update
