@@ -1,0 +1,35 @@
+<% @pets.each do |pet|%>
+  <% if session[:favorite].include?("#{pet.id}")%>
+  <ul><%= link_to "#{pet.name}",  "/pets/#{pet.id}"%></ul>
+  <ul><% image_tag("/pets/#{pet.image}", :size => "200x100")%></ul>
+  <p><%= radio_button_tag 'Adopt Me!', "qwerty" %> Adoopt meee!</p>
+  <% end %>
+<% end  %>
+
+
+
+<%= form_tag "/" do %>
+  <%= label_tag 'Name' %><br/>
+  <%= text_field_tag :name %><br/>
+
+  <%= label_tag 'Address' %><br/>
+  <%= text_field_tag :address %><br/>
+
+  <%= label_tag 'City' %><br/>
+  <%= text_field_tag :city %><br/>
+
+  <%= label_tag 'State' %><br/>
+  <%= text_field_tag :state %><br/>
+
+  <%= label_tag 'Zip' %><br/>
+  <%= text_field_tag :zip %><br/>
+
+  <%= label_tag 'Phone Number' %><br/>
+  <%= text_field_tag :phone_number %><br/>
+
+  <%= label_tag 'Why is your home a good place?' %><br/>
+  <%= text_field_tag :description %><br/>
+
+
+  <%= submit_tag "Submit Application" %>
+<% end %>
