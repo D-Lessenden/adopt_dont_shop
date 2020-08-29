@@ -1,13 +1,8 @@
-<% @pets.each do |pet| %>
-  <% if session[:favorite].include?("#{pet.id}")%>
-  <ul><%= link_to "#{pet.name}",  "/pets/#{pet.id}"%></ul>
-  <ul><%= image_tag("/pets/#{pet.image}", :size => "200x100")%></ul>
-  <%= check_box "pet", nil, {:multiple => false}, pet.id, nil %>
-  <%= label_tag pet.name %>
-  <% end %>
-<% end  %>
-
 <%= form_tag "/apps/new" do %>
+
+  <%= collection_check_boxes(:adopt, :pet_id, @pets.each {|pet| pet if session[:favorite].include?("#{pet.id}")}, :id, :name) %>
+  <br>
+
   <%= label_tag 'Name' %><br/>
   <%= text_field_tag :name %><br/>
 

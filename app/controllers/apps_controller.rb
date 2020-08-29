@@ -9,7 +9,9 @@ class AppsController < ApplicationController
   end
 
   def new
+  #  @pet_id = params[:pet_id]
     @pets = Pet.all
+
   end
 
   def create
@@ -21,7 +23,6 @@ class AppsController < ApplicationController
       zip: params[:zip],
       phone_number: params[:phone_number],
       description: params[:description],
-      pet_id: params[:pet_id]
       })
       # app.save
       # redirect_to "/favorites"
