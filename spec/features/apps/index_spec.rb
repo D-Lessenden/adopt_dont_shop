@@ -17,6 +17,11 @@ RSpec.describe 'Applications index page' do
     expect(page).to have_content(@pet1.name)
     expect(page).to have_content(@pet2.name)
 
+    expect(page).to have_content("Name")
+    expect(page).to have_content("Address")
+    expect(page).to have_content("City")
+
+
 
 
   end

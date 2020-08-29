@@ -2,13 +2,14 @@
   <% if session[:favorite].include?("#{pet.id}")%>
   <ul><%= link_to "#{pet.name}",  "/pets/#{pet.id}"%></ul>
   <ul><% image_tag("/pets/#{pet.image}", :size => "200x100")%></ul>
-  <p><%= radio_button_tag 'Adopt Me!', "qwerty" %> Adoopt meee!</p>
+  <%= check_box_tag("Adopt me!", pet.id) %>
+  <%= label_tag "Adopt me!" %>
   <% end %>
 <% end  %>
 
 
 
-<%= form_tag "/" do %>
+<%= form_tag "/apps/new" do %>
   <%= label_tag 'Name' %><br/>
   <%= text_field_tag :name %><br/>
 

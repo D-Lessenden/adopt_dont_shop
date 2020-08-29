@@ -8,6 +8,21 @@ class AppsController < ApplicationController
      end
   end
 
+  def new
+  end
+
+  def create
+    app = App.new({
+      name: params[:name],
+      address: params[:address],
+      city: params[:city],
+      state: params[:state],
+      zip: params[:zip],
+      phone_number: params[:phone_number],
+      description: params[:description]
+      })
+  end
+
   def update
     @pet = Pet.find(params[:pet_id])
     app = App.new(session[:app])
