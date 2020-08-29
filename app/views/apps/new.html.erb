@@ -1,14 +1,11 @@
-<% @pets.each do |pet|%>
+<% @pets.each do |pet| %>
   <% if session[:favorite].include?("#{pet.id}")%>
-  <ul><% link_to "#{pet.name}",  "/pets/#{pet.id}"%></ul>
+  <ul><%= link_to "#{pet.name}",  "/pets/#{pet.id}"%></ul>
   <ul><%= image_tag("/pets/#{pet.image}", :size => "200x100")%></ul>
-  <%= check_box_tag("Adopt me!", pet.id, false) %>
-  <%= label_tag "Adopt me!" %>
-  <!-- <h3 id=<%#{}"checked_field-#{pet.id}"%>><%# check_box_tag "#{pet.id}", "#{pet.name}"%> <%# pet.name %></h3> -->
+  <%= check_box "pet", nil, {:multiple => false}, pet.id, nil %>
+  <%= label_tag pet.name %>
   <% end %>
 <% end  %>
-
-
 
 <%= form_tag "/apps/new" do %>
   <%= label_tag 'Name' %><br/>

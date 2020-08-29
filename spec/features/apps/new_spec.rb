@@ -42,7 +42,6 @@ RSpec.describe 'New application page' do
     fill_in 'description', with: "Test"
 
     click_button "Submit Application"
-    binding.pry
 
 
     expect(page).to have_content("Your application has been submitted")

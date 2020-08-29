@@ -20,7 +20,8 @@ class AppsController < ApplicationController
       state: params[:state],
       zip: params[:zip],
       phone_number: params[:phone_number],
-      description: params[:description]
+      description: params[:description],
+      pet_id: params[:pet_id]
       })
       # app.save
       # redirect_to "/favorites"
