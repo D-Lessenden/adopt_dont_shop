@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_29_172519) do
+ActiveRecord::Schema.define(version: 2020_08_29_162547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,6 @@ ActiveRecord::Schema.define(version: 2020_08_29_172519) do
     t.string "description"
     t.string "adoption_status"
     t.boolean "favorite"
-    t.bigint "app_id"
-    t.index ["app_id"], name: "index_pets_on_app_id"
     t.index ["shelter_id"], name: "index_pets_on_shelter_id"
   end
 
@@ -59,7 +57,6 @@ ActiveRecord::Schema.define(version: 2020_08_29_172519) do
   end
 
   add_foreign_key "apps", "pets"
-  add_foreign_key "pets", "apps"
   add_foreign_key "pets", "shelters"
   add_foreign_key "reviews", "shelters"
 end
