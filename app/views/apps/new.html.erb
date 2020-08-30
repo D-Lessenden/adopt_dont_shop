@@ -1,6 +1,15 @@
+<% @fav = [] %>
+<% @pets.each do |pet| %>
+  <% if session[:favorite].include?("#{pet.id}")%>
+  <% @fav << pet  %>
+  <% end %>
+<% end  %>
+
+
 <%= form_tag "/apps/new" do %>
 
-  <%= collection_check_boxes(:adopt, :pet_id, @pets.each {|pet| pet if session[:favorite].include?("#{pet.id}")}, :id, :name) %>
+  <%= collection_check_boxes(:adopt, :pet_id, @fav, :id, :name) %>
+  <br>
   <br>
 
   <%= label_tag 'Name' %><br/>
