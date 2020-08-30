@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe App, type: :model do
   describe "validations" do
+    it { should have_many :application_pets }
+    it {should have_many(:pets).through(:application_pets)}
     it { should validate_presence_of :name }
   end
 
