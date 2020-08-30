@@ -5,7 +5,6 @@
   <% end %>
 <% end  %>
 
-
 <%= form_tag "/apps/new" do %>
 
   <%= collection_check_boxes(:adopt, :pet_id, @fav, :id, :name) %>
