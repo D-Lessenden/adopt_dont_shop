@@ -24,7 +24,6 @@ RSpec.describe 'Favorites index page' do
     visit "/pets/#{@pet1.id}"
     click_button("Add to Favorites", match: :first)
     visit '/favorites'
-    save_and_open_page
 
 
     expect(page).to have_content(@pet1.name)
