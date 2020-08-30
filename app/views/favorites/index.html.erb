@@ -1,4 +1,4 @@
-<% if session[:favorite].count > 0 %>
+<% if  session[:favorite] != nil %>
 <%= link_to 'New Application', "/apps/new" %>
 <%= button_to 'Remove All From Favorites', "/favorites/delete_all", method: :delete_all %>
 
@@ -19,11 +19,13 @@
 
 <% end  %>
 
+<h4>Pets that have an application</h4>
+
+<% @apps.each do |app|%>
+  <ul> <%= app %>
+<% end %>
 
 
-
-
-<!-- NEED TO DO STORY 13 AND 15 -->
 <!-- ADD VALIDATES_PRESENCE_OF FOR SHELTER AND PETS -->
 <!-- ADD FLASH MESSAGES FOR THE ABOVE-->
 <!-- NEED TEST FOR POROS -->

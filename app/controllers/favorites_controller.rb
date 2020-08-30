@@ -10,6 +10,7 @@ class FavoritesController < ApplicationController
       @pets = Pet.where favorite: params[:favorite]
      else
       @pets = Pet.all
+      @apps = App.all 
      end
   end
 
