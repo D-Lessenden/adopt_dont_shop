@@ -15,6 +15,8 @@ class AppsController < ApplicationController
   end
 
   def create
+    @pets = Pet.all
+
     app = App.new({
       name: params[:name],
       address: params[:address],
@@ -28,12 +30,19 @@ class AppsController < ApplicationController
 
       if app.save
         flash[:notice] = "Your application has been submitted"
+
+        params[:adopt][:pet_id].shift
+        pets = Pet.find(params[:adopt][:pet_id])
+        pets.each do |pet|
+          ApplicationPet.create(app_id: app, pet_id: pet)
+        end
+
         session[:favorite].each do |k, v|
           if params[:adopt][:pet_id].include?(k)
             session[:favorite].delete(k)
-            redirect_to "/favorites"
           end
         end
+        redirect_to "/favorites"
       else
           flash[:alert] = "All fields are required"
           redirect_to "/apps/new"
