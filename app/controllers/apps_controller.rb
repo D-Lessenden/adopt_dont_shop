@@ -40,6 +40,8 @@ class AppsController < ApplicationController
    def show
      @app = App.find(params[:id])
    end
+  end
+end
 
   # def update
   #   @pet = Pet.find(params[:pet_id])
@@ -49,4 +51,3 @@ class AppsController < ApplicationController
   #   #flash[:notice] = "Added to favorites"
   #   #redirect_to "/pets/#{@pet.id}"
   # end
-end
