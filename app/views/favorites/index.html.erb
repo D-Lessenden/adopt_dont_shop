@@ -16,8 +16,14 @@
 
 <% else %>
   <%= p "You have no favorited pets" %>
-
 <% end  %>
+
+<h4>Pets that have an application</h4>
+<% @apps.each do |app|%>
+  <%# @pets.each do |pet|%>
+  <%binding.pry  %>
+  <% end %>
+
 
 
 
