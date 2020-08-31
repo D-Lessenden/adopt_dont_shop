@@ -9,6 +9,8 @@ class AppsController < ApplicationController
   end
 
   def new
+    require "pry"
+    binding.pry
     @pets = Pet.all
   end
 
@@ -36,6 +38,10 @@ class AppsController < ApplicationController
         flash[:alert] = "All fields are required"
         redirect_to "/apps/new"
       end
+  end
+
+  def show
+    @app = App.find(params[:id])
   end
 
   # def update
