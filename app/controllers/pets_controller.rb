@@ -50,7 +50,6 @@ class PetsController < ApplicationController
       sex: params[:sex],
       shelter_id: params[:shelter_id],
       adoption_status: params[:adoption_status],
-      favorite: params[:favorite]
       })
     pet.save
     redirect_to "/pets/#{pet.id}"

@@ -32,7 +32,7 @@ RSpec.describe 'New application page' do
     click_button("Add to Favorites", match: :first)
 
     visit '/apps/new'
-
+    check "snowball"
     fill_in 'name', with: "Test"
     fill_in 'address', with: "Test"
     fill_in 'city', with: "Test"
@@ -45,7 +45,6 @@ RSpec.describe 'New application page' do
 
 
     expect(page).to have_content("Your application has been submitted")
-
 
 
   end
@@ -85,7 +84,7 @@ RSpec.describe 'New application page' do
     click_button("Add to Favorites", match: :first)
 
     visit '/apps/new'
-
+    check "snowball"
     fill_in 'name', with: "Test"
     fill_in 'address', with: "Test"
     fill_in 'city', with: "Test"
@@ -95,7 +94,6 @@ RSpec.describe 'New application page' do
     fill_in 'description', with: "Test"
 
     click_button "Submit Application"
-
     expect(current_path).to eq("/favorites")
   end
 #add in model testing.

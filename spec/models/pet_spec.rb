@@ -6,4 +6,8 @@ describe Pet, type: :model do
       it { should have_many :application_pets }
           it {should have_many(:apps).through(:application_pets)}
     end
+
+  describe "relationships" do
+    it { should have_many :apps }
+  end
 end

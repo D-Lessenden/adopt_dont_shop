@@ -1,16 +1,14 @@
 class AppsController < ApplicationController
   def index
-    if params[:App]
-      @App = params[:App]
-      @pets = Pet.where App: params[:App]
+    if params[:app_id]
+      @app_id = params[:app_id]
+      @pets = Pet.where app_id: params[:app_id]
      else
       @pets = Pet.all
      end
   end
 
   def new
-    require "pry"
-    binding.pry
     @pets = Pet.all
   end
 
@@ -25,24 +23,23 @@ class AppsController < ApplicationController
       description: params[:description],
       pet_id: params[:pet_id]
       })
-      # app.save
-      # redirect_to "/favorites"
+
       if app.save
         flash[:notice] = "Your application has been submitted"
-          # @pets.each do |pet|
-          #   pet.
-          # end
-
-        redirect_to "/favorites"
+        session[:favorite].each do |k, v|
+          if params[:adopt][:pet_id].include?(k)
+            session[:favorite].delete(k)
+            redirect_to "/favorites"
+          end
+        end
       else
-        flash[:alert] = "All fields are required"
-        redirect_to "/apps/new"
+          flash[:alert] = "All fields are required"
+          redirect_to "/apps/new"
       end
-  end
 
-  def show
-    @app = App.find(params[:id])
-  end
+   def show
+     @app = App.find(params[:id])
+   end
 
   # def update
   #   @pet = Pet.find(params[:pet_id])
@@ -52,6 +49,4 @@ class AppsController < ApplicationController
   #   #flash[:notice] = "Added to favorites"
   #   #redirect_to "/pets/#{@pet.id}"
   # end
-
-
 end
