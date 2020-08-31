@@ -15,7 +15,7 @@ class AppsController < ApplicationController
   end
 
   def create
-    @pets = Pet.all
+    #@pets = Pet.all
 
     app = App.new({
       name: params[:name],
@@ -25,7 +25,7 @@ class AppsController < ApplicationController
       zip: params[:zip],
       phone_number: params[:phone_number],
       description: params[:description],
-      pet_id: params[:pet_id]
+      #pet_id: params[:pet_id]
       })
 
       if app.save
@@ -36,6 +36,7 @@ class AppsController < ApplicationController
         pets.each do |pet|
           ApplicationPet.create(app_id: app, pet_id: pet)
         end
+      #  binding.pry
 
         session[:favorite].each do |k, v|
           if params[:adopt][:pet_id].include?(k)
