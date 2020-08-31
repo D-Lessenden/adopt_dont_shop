@@ -20,9 +20,11 @@
 
 <h4>Pets that have an application</h4>
 <% @apps.each do |app|%>
-  <%# @pets.each do |pet|%>
-  <%binding.pry  %>
+  <% app.pets.each do |pet| %>
+  <%= link_to "#{pet.name}", "/pets/#{pet.id}"  %>
   <% end %>
+<% end %>
+
 
 
 
