@@ -9,9 +9,7 @@ class AppsController < ApplicationController
   end
 
   def new
-  #  @pet_id = params[:pet_id]
     @pets = Pet.all
-
   end
 
   def create
@@ -38,6 +36,17 @@ class AppsController < ApplicationController
           flash[:alert] = "All fields are required"
           redirect_to "/apps/new"
       end
-    end
 
+   def show
+     @app = App.find(params[:id])
+   end
+
+  # def update
+  #   @pet = Pet.find(params[:pet_id])
+  #   app = App.new(session[:app])
+  #   app.add_pet(@pet)
+  #   session[:app] = app.fav_list
+  #   #flash[:notice] = "Added to favorites"
+  #   #redirect_to "/pets/#{@pet.id}"
+  # end
 end

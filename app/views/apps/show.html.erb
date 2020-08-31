@@ -1,0 +1,8 @@
+<h1><%= @app.name %></h1>
+<p>address: <%= @app.address  %></p>
+<p>city: <%= @app.city %></p>
+<p>state: <%= @app.state %></p>
+<p>zip: <%= @app.zip %></p>
+<p>phone number: <%= @app.phone_number %></p>
+<p>description: <%= @app.description %></p>
+<p>Pets: <%= link_to "#{@app.pets.first.name}", "/pets/#{@app.pets.ids.first}/show" %></p>

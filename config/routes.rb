@@ -50,6 +50,7 @@ Rails.application.routes.draw do
 
 resources :apps
 post "apps/new", to: 'apps#create'
+get "/app/:id", to: 'apps#show'
 
 end #need to run the db migrate command
   #this is the example from in class exercise rails g migration CreateSongs title:string length:integer play_count:integer
