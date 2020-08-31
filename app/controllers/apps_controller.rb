@@ -1,5 +1,7 @@
 class AppsController < ApplicationController
   def index
+    @app = App.find(params[:id])
+
     if params[:app_id]
       @app_id = params[:app_id]
       @pets = Pet.where app_id: params[:app_id]
@@ -21,17 +23,27 @@ class AppsController < ApplicationController
       zip: params[:zip],
       phone_number: params[:phone_number],
       description: params[:description],
-      pet_id: params[:pet_id]
+      pet_id: params[:adopt][:pet_id].shift
       })
 
       if app.save
         flash[:notice] = "Your application has been submitted"
+
+        params[:adopt][:pet_id]
+        pets = Pet.find(params[:adopt][:pet_id])
+        pets.each do |pet|
+          #app: app pet: pet
+        #  app.pets.create!
+        ApplicationPet.create!(app_id: app.id, pet_id: pet.id)
+        end
+        #binding.pry
+
         session[:favorite].each do |k, v|
           if params[:adopt][:pet_id].include?(k)
             session[:favorite].delete(k)
-            redirect_to "/favorites"
           end
         end
+        redirect_to "/favorites"
       else
           flash[:alert] = "All fields are required"
           redirect_to "/apps/new"

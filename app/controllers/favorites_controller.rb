@@ -1,9 +1,6 @@
 class FavoritesController < ApplicationController
 
   def index
-    # if session[:favorite]
-    #   @fav_pets = Pet.find(session[:favorite])
-    # end
 
     if params[:favorite]
       @favorite = params[:favorite]
@@ -11,6 +8,13 @@ class FavoritesController < ApplicationController
      else
       @pets = Pet.all
      end
+
+     if params[:favorite]
+       @favorite = params[:favorite]
+       @apps = Pet.where favorite: params[:favorite]
+      else
+        @apps = App.all
+      end
   end
 
 
