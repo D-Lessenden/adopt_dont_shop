@@ -34,8 +34,6 @@ class PetsController < ApplicationController
     redirect_to "/shelters/#{pet.shelter_id}/pets"
   end
 
-
-
   def edit
     @pet = Pet.find(params[:id])
   end
@@ -53,10 +51,8 @@ class PetsController < ApplicationController
       })
     pet.save
     redirect_to "/pets/#{pet.id}"
-
   end
-
-
+  
   def destroy
     Pet.destroy(params[:id])
     redirect_to '/pets'
