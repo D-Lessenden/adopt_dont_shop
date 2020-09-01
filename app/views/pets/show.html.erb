@@ -17,7 +17,7 @@
 <%= button_to 'Remove from Favorites', favorite_path(pet_id: @pet.id), method: :delete %>
 <% end %>
 <br>
-<%= link_to 'Applications', "/apps" %>
+<%= link_to 'Applications', "/apps/pet_apps/#{@pet.id}" %>
 
 <br>
 <%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %>

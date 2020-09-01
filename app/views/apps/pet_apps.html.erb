@@ -1,0 +1,8 @@
+
+<p>  something </p>
+<%@application_pets.each do |app| %>
+<%#binding.pry %>
+<%# app.app.name %>
+
+<%= link_to "#{app.app.name}", "/apps/#{app.id}" %>
+<% end %>
