@@ -43,10 +43,11 @@ class PetsController < ApplicationController
     pet = Pet.find(params[:id])
     if params[:approve] == 'true'
       pet.update( {adoption_status: "pending"})
+      redirect_to "/pets/#{pet.id}"
     else
       pet.update( {adoption_status: "Adoptable"})
+      redirect_to request.referrer
     end
-      redirect_to "/pets/#{pet.id}"
   end
 
   def update
