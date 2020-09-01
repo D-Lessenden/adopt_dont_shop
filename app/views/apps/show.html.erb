@@ -9,8 +9,6 @@
   <p> Pet:  <%= link_to "#{pet.name}", "/pets/#{pet.id}"  %></p>
   <div id="pet-<%= pet.id %>">
     <% pet.change_status(pet) %>
-    <% require "pry"
-    binding.pry %>
     <%= link_to "approve", "/pets/#{pet.id}"  %>
   </div>
   <% end %>

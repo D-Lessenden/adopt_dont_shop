@@ -47,10 +47,9 @@ Rails.application.routes.draw do
   post "/favorites/delete_all", to: "favorites#delete_all"
   delete "/favorites", to: "favorites#destroy_all"
 
-
-resources :apps
-post "apps/new", to: 'apps#create'
-get "/app/:id", to: 'apps#show'
+  resources :apps
+  post "apps/new", to: 'apps#create'
+  get "/app/:id", to: 'apps#show'
 
 end #need to run the db migrate command
   #this is the example from in class exercise rails g migration CreateSongs title:string length:integer play_count:integer

@@ -5,10 +5,10 @@ class Pet < ApplicationRecord
   has_many :application_pets
   has_many :apps, through: :application_pets
 
-  # def set_defaults
-  #   self.adoption_status ||= "Adoptable"
-  # #  self.favorite ||= false
-  # end
+  def set_defaults
+    self.adoption_status ||= "Adoptable"
+  #  self.favorite ||= false
+  end
 
   def change_status(pet)
     pet.adoption_status = "pending"
