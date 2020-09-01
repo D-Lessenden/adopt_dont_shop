@@ -3,10 +3,10 @@ class PetsController < ApplicationController
   def index
     if params[:shelter_id]
       @shelter_id = params[:shelter_id]
-     @pets = Pet.where shelter_id: params[:shelter_id]
-     else
+      @pets = Pet.where shelter_id: params[:shelter_id]
+    else
       @pets = Pet.all
-     end
+    end
   end
 
   def show
@@ -62,20 +62,5 @@ class PetsController < ApplicationController
     Pet.destroy(params[:id])
     redirect_to '/pets'
   end
-
-  # def favorite_count
-  #   count = 0
-  #   @pets.each do |pet|
-  #     if pet.favorite == true
-  #       count += 1
-  #     end
-  #       count
-  #     end
-  # end
-
-  # private
-  # def pet_params
-  #   params.require(:pet).permit(:image, :name, :approximate_age, :sex, :shelter_id, :description, :adoption_status)
-  # end
 
 end
