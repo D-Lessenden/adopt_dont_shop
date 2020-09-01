@@ -39,11 +39,18 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
   end
 
-  def update
+  def update_approve
     pet = Pet.find(params[:id])
     if params[:approve] == 'true'
       pet.update( {adoption_status: "pending"})
     else
+      pet.update( {adoption_status: "Adoptable"})
+    end
+      redirect_to "/pets/#{pet.id}"
+  end
+
+  def update
+    pet = Pet.find(params[:id])
     pet.update({
       image: params[:image],
       name: params[:name],
@@ -53,7 +60,6 @@ class PetsController < ApplicationController
       shelter_id: params[:shelter_id],
       # adoption_status: params[:adoption_status],
       })
-    end
     pet.save
     redirect_to "/pets/#{pet.id}"
   end

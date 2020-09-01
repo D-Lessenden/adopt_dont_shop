@@ -5,7 +5,7 @@
    <p>This pet is available</p>
 <% else %>
    <%@application_pets.each do |app| %>
-   <%= link_to "adoption pending for #{app.app.name}", "/apps/#{app.id}" %>
+   <%= link_to "adoption pending for #{app.app.name}" %>
    <% end %>
 <% end %>
 
