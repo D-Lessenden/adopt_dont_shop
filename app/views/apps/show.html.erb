@@ -8,7 +8,6 @@
   <% @app.pets.each do |pet| %>
   <p> Pet:  <%= link_to "#{pet.name}", "/pets/#{pet.id}"  %></p>
   <div id="pet-<%= pet.id %>">
-    <% pet.change_status(pet) %>
-    <%= link_to "approve", "/pets/#{pet.id}"  %>
+    <%= link_to "approve", "/pets/#{pet.id}?approve=true", method: :patch  %>
   </div>
   <% end %>

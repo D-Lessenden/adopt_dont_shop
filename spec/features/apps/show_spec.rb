@@ -42,6 +42,7 @@ describe "As a visitor" do
       click_on("approve")
     expect(current_path).to eq("/pets/#{@app1.pets.first.id}")
     end
+    expect(page).to have_content("pending")
   end
 end
 

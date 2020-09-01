@@ -40,6 +40,11 @@ class PetsController < ApplicationController
 
   def update
     pet = Pet.find(params[:id])
+    if params[:approve] == 'true'
+      pet.update( {adoption_status: "pending"})
+      require "pry"
+      binding.pry
+    else
     pet.update({
       image: params[:image],
       name: params[:name],
@@ -49,10 +54,11 @@ class PetsController < ApplicationController
       shelter_id: params[:shelter_id],
       adoption_status: params[:adoption_status],
       })
+    end
     pet.save
     redirect_to "/pets/#{pet.id}"
   end
-  
+
   def destroy
     Pet.destroy(params[:id])
     redirect_to '/pets'
