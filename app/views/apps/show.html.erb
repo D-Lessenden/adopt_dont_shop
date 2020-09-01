@@ -6,5 +6,8 @@
 <p>phone number: <%= @app.phone_number %></p>
 <p>description: <%= @app.description %></p>
   <% @app.pets.each do |pet| %>
-<p>Pets:  <%= link_to "#{pet.name}", "/pets/#{pet.id}/show"  %></p>
+  <p> Pet:  <%= link_to "#{pet.name}", "/pets/#{pet.id}"  %></p>
+  <div id="pet-<%= pet.id %>">
+    <%= link_to "approve", "/pets/#{pet.id}?approve=true", method: :patch  %>
+  </div>
   <% end %>

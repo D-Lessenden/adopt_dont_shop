@@ -2,9 +2,8 @@
     <p>No applications for this pet</p>
 <% else %>
     <%@application_pets.each do |app| %>
-    <%#binding.pry %>
-    <%# app.app.name %>
-
+        <% require "pry"
+        binding.pry %>
     <%= link_to "#{app.app.name}", "/apps/#{app.id}" %>
     <% end %>
 <% end %>

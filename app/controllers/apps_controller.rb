@@ -3,9 +3,9 @@ class AppsController < ApplicationController
     if params[:app_id]
       @app_id = params[:app_id]
       @pets = Pet.where app_id: params[:app_id]
-     else
+    else
       @pets = Pet.all
-     end
+    end
   end
 
   def new
@@ -45,7 +45,7 @@ class AppsController < ApplicationController
           flash[:alert] = "All fields are required"
           redirect_to "/apps/new"
       end
-   end
+  end
 
    def show
       @app = App.find(params[:id])

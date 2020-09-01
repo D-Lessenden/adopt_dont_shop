@@ -10,4 +10,8 @@ class Pet < ApplicationRecord
   #  self.favorite ||= false
   end
 
+  # def change_status(pet)
+  #   pet.adoption_status = "pending"
+  # end
+
 end

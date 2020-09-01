@@ -42,10 +42,6 @@ RSpec.describe 'Edit Pet' do
         expect(page).to have_content('laksjdfalskjdf')
         expect(page).to have_content(5)
         expect(page).to have_content("female")
-
-
-
-
       end
     end
   end

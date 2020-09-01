@@ -31,14 +31,13 @@ Rails.application.routes.draw do
   get '/shelters/:shelter_id/pets/new', to: 'pets#new'
   post '/shelters/:shelter_id/pets', to: 'pets#create'
 
-
   get '/pets', to: 'pets#index'
   get '/shelters/pets/new', to: 'pets#new'
   post '/pets', to: 'pets#create'
 
+  patch '/pets/:id', to: 'pets#update'
   get '/pets/:id', to: 'pets#show'
   get '/pets/:id/edit', to: 'pets#edit'
-  patch '/pets/:id', to: 'pets#update'
   delete '/pets/:id', to: 'pets#destroy'
 
   #patch "/favorites", to: "favorites#update"
@@ -47,11 +46,9 @@ Rails.application.routes.draw do
   post "/favorites/delete_all", to: "favorites#delete_all"
   delete "/favorites", to: "favorites#destroy_all"
 
-
-resources :apps
-post "apps/new", to: 'apps#create'
-get "/app/:id", to: 'apps#show'
-get "/apps/pet_apps/:pet_id", to: "apps#pet_apps"
+  resources :apps
+  post "apps/new", to: 'apps#create'
+  get "/app/:id", to: 'apps#show'
 
 end #need to run the db migrate command
   #this is the example from in class exercise rails g migration CreateSongs title:string length:integer play_count:integer
