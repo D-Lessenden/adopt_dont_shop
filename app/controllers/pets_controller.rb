@@ -10,6 +10,7 @@ class PetsController < ApplicationController
   end
 
   def show
+    @application_pets = ApplicationPet.where(id: params[:id].to_i)
     @pet = Pet.find(params[:id])
   end
 
@@ -42,8 +43,6 @@ class PetsController < ApplicationController
     pet = Pet.find(params[:id])
     if params[:approve] == 'true'
       pet.update( {adoption_status: "pending"})
-      require "pry"
-      binding.pry
     else
     pet.update({
       image: params[:image],
@@ -52,7 +51,7 @@ class PetsController < ApplicationController
       approximate_age: params[:approximate_age],
       sex: params[:sex],
       shelter_id: params[:shelter_id],
-      adoption_status: params[:adoption_status],
+      # adoption_status: params[:adoption_status],
       })
     end
     pet.save
