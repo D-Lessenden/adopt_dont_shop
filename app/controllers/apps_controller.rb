@@ -1,6 +1,6 @@
 class AppsController < ApplicationController
   def index
-    @app = App.find(params[:id])
+    #@app = App.find(params[:id])
 
     if params[:app_id]
       @app_id = params[:app_id]

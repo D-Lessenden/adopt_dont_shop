@@ -16,6 +16,8 @@
 <% else session[:favorite].include?(@pet.id.to_s) == true %>
 <%= button_to 'Remove from Favorites', favorite_path(pet_id: @pet.id), method: :delete %>
 <% end %>
+<br>
+<%= link_to 'Applications', "/apps" %>
 
 <br>
 <%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %>
