@@ -48,10 +48,10 @@ class AppsController < ApplicationController
           flash[:alert] = "All fields are required"
           redirect_to "/apps/new"
       end
+    end
 
-   def show
+  def show
      @app = App.find(params[:id])
-   end
   end
 end
 
