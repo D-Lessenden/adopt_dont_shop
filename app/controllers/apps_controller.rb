@@ -1,13 +1,11 @@
 class AppsController < ApplicationController
   def index
-    @app = App.find(params[:id])
-
     if params[:app_id]
       @app_id = params[:app_id]
       @pets = Pet.where app_id: params[:app_id]
-     else
+    else
       @pets = Pet.all
-     end
+    end
   end
 
   def new
@@ -36,7 +34,6 @@ class AppsController < ApplicationController
         #  app.pets.create!
         ApplicationPet.create!(app_id: app.id, pet_id: pet.id)
         end
-        #binding.pry
 
         session[:favorite].each do |k, v|
           if params[:adopt][:pet_id].include?(k)
@@ -51,15 +48,11 @@ class AppsController < ApplicationController
   end
 
    def show
-     @app = App.find(params[:id])
+      @app = App.find(params[:id])
    end
-end
 
-  # def update
-  #   @pet = Pet.find(params[:pet_id])
-  #   app = App.new(session[:app])
-  #   app.add_pet(@pet)
-  #   session[:app] = app.fav_list
-  #   #flash[:notice] = "Added to favorites"
-  #   #redirect_to "/pets/#{@pet.id}"
-  # end
+   def pet_apps
+     @application_pets = ApplicationPet.where(pet_id: params[:pet_id])
+   end
+
+end
