@@ -22,4 +22,8 @@ class Favorite
     @fav_list[pet_id_str]
   end
 
+  def minus_from_fave(pet)
+    require "pry"
+    binding.pry
+  end
 end

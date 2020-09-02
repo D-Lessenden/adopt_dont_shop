@@ -30,9 +30,12 @@ class PetsController < ApplicationController
       adoption_status: params[:pet][:adoption_status]
 
       })
-    pet.save
-
-    redirect_to "/shelters/#{pet.shelter_id}/pets"
+      if pet.save
+        redirect_to "/shelters/#{pet.shelter_id}/pets"
+      else
+        flash[:alert] = "All fields required. You're better than that."
+        redirect_to "/shelters/#{pet.shelter_id}/pets/new"
+      end
   end
 
   def edit
@@ -56,13 +59,25 @@ class PetsController < ApplicationController
         sex: params[:sex],
         shelter_id: params[:shelter_id],
         })
-        redirect_to "/pets/#{pet.id}"
-      end
-      pet.save
+        if pet.save
+          redirect_to "/pets/#{pet.id}"
+        else
+          flash[:alert] = "All fields required. You're better than that."
+          redirect_to request.referrer
+        end
+    end
   end
 
   def destroy
+    @pet = Pet.find(params[:id])
     Pet.destroy(params[:id])
+    if session[:favorite] != nil
+    session[:favorite].each do |k, v|
+        if params[:id].include?(k)
+          session[:favorite].delete(k)
+        end
+      end
+    end
     redirect_to '/pets'
   end
 
