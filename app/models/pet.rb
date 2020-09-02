@@ -4,6 +4,7 @@ class Pet < ApplicationRecord
   belongs_to :shelter
   has_many :application_pets
   has_many :apps, through: :application_pets
+  validates_presence_of :image, :name, :approximate_age, :sex, :description
 
   def set_defaults
     self.adoption_status ||= "Adoptable"
