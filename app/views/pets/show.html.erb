@@ -1,24 +1,38 @@
 <header id="header">
   <h1><%= @pet.name %></h1>
 </header>
-<div class="header-link">
-  <%= link_to 'Back To Home', "/" %>
-  <%= link_to 'Go to Shelters', "/shelters" %>
-  <%= link_to 'Go to Pets', "/pets" %>
-</div>
+<% if @pet.adoption_status == "Adoptable" %>
+   <p>This pet is available</p>
+<% else %>
+   <%@application_pets.each do |app| %>
+   <%= link_to "adoption pending for #{app.app.name}", "/apps/#{app.id}"  %>
+   <% end %>
+<% end %>
 
 <br>
 <img src="<%= @pet.image %>">
 <p>Description: <%= @pet.description %></p>
 <p>Approximate age: <%= @pet.approximate_age %></p>
 <p>Sex: <%= @pet.sex %></p>
-
 <p>Adoption Status: <%= @pet.adoption_status %></p>
+<br>
 
+<% if session[:favorite] == nil || session[:favorite].include?(@pet.id.to_s) == false %>
+<%= button_to 'Add to Favorites', favorite_path(pet_id: @pet.id), method: :patch %>
+<% else session[:favorite].include?(@pet.id.to_s) == true %>
+<%= button_to 'Remove from Favorites', favorite_path(pet_id: @pet.id), method: :delete %>
+<% end %>
+<br>
+<%= link_to 'Applications', "/apps/pet_apps/#{@pet.id}" %>
+
+<br>
 <%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %>
-
- <form action="/pets/<%= @pet.id %>" method="POST">
-   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"><br>
-   <input type="hidden" name="_method" value="DELETE">
-   <input type="submit" name="Delete Pet" value="Delete Pet"/>
- </form>
+<% if @pet.pending_pet? %>
+  <p> pending applications </p>
+<% else  %>
+  <form action="/pets/<%= @pet.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"><br>
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="Delete Pet" value="Delete Pet"/>
+  </form>
+<%end  %>

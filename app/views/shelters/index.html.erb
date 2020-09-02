@@ -1,14 +1,7 @@
 <header id="header">
     <h1>Shelters</h1>
 </header>
-
-<div class="header-link">
-  <%= link_to 'Back To Home', "/" %>
-  <%= link_to 'Go to Pets', "/pets" %>
-</div>
 <%= link_to "New Shelter", "/shelters/new" %><br>
-
-
 
 
   <% @shelters.each do |shelter| %>
@@ -21,10 +14,14 @@
 
   <%= link_to 'Pets', "/shelters/#{shelter.id}/pets" %><br>
   <%= link_to 'Update Shelter', "/shelters/#{shelter.id}/edit" %><br>
+  <% if shelter.has_pending? %>
+    <p>pending applications</p>
+  <% else  %>
   <form action="/shelters/<%= shelter.id %>" method="POST">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" name="Delete Shelter" value="Delete Shelter"/>
   </form>
+  <%end  %>
 
-  <% end %>
+<% end %>

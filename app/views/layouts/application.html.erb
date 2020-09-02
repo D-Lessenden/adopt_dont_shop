@@ -7,9 +7,36 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <!-- put nav bad here -->
+
+
+    <header>
+      <div class="nav-bar">
+        <ul>
+          <p><%= link_to "Back to Home", "/" %>
+            <%= link_to "Go to Shelters", "/shelters" %>
+            <%= link_to 'Go to Pets', "/pets" %>
+            <%= link_to 'Favorites', "/favorites" %>
+            <% if session[:favorite] == nil %>
+            <%= "0" %>
+            <% else %>
+            <%= "#{session[:favorite].count}" %>
+            <% end %>
+
+          </p>
+
+        </ul>
+      </div>
+    </header>
+
   </head>
 
   <body>
+
+    <% flash.each do |type, message| %>
+      <p><%= message %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

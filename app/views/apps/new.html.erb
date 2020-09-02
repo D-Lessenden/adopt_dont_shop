@@ -1,0 +1,38 @@
+<% @fav = [] %>
+<% @pets.each do |pet| %>
+  <% if session[:favorite].include?("#{pet.id}")%>
+  <% @fav << pet  %>
+  <% end %>
+<% end  %>
+
+<%= form_tag "/apps/new" do %>
+
+  <%= collection_check_boxes(:adopt, :pet_id, @fav, :id, :name) %>
+  <br>
+  <br>
+
+  <%= label_tag 'Name' %><br/>
+  <%= text_field_tag :name %><br/>
+
+  <%= label_tag 'Address' %><br/>
+  <%= text_field_tag :address %><br/>
+
+  <%= label_tag 'City' %><br/>
+  <%= text_field_tag :city %><br/>
+
+  <%= label_tag 'State' %><br/>
+  <%= text_field_tag :state %><br/>
+
+  <%= label_tag 'Zip' %><br/>
+  <%= text_field_tag :zip %><br/>
+
+  <%= label_tag 'Phone Number' %><br/>
+  <%= text_field_tag :phone_number %><br/>
+
+  <%= label_tag 'Why is your home a good place?' %><br/>
+  <%= text_field_tag :description %><br/>
+
+
+  <%= submit_tag "Submit Application" %>
+
+<% end %>

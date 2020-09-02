@@ -1,0 +1,18 @@
+
+<%= form_tag "/reviews/#{@review.id}" do %>
+  <%= label_tag 'Title' %><br/>
+  <%= text_field_tag :title %><br/>
+  <%= label_tag 'Rating 1-5' %><br/>
+  <%= text_field_tag :rating %><br/>
+  <%= label_tag 'Content' %><br/>
+  <%= text_field_tag :content %><br/>
+  <%= label_tag 'Picture (Optional)' %><br/>
+  <%= text_field_tag :picture %><br/>
+  <%= submit_tag "Update Review" %>
+<% end %>
+
+<!-- <form action="/pets/<#%= @pet.id %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<#%= form_authenticity_token %>"><br>
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" name="Delete Pet" value="Delete Pet"/>
+</form> -->

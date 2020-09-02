@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+
+
 body {
   background-color: #fbf5cd;
    color: #065e09;
@@ -40,6 +43,20 @@ header {
 
 }
 
+.nav-bar {
+  font-family: Arial;
+  background-color: darkred;
+  color: white;
+  text-align: left;
+  font-size: 20px;
+  padding: 0px;
+
+
+
+
+
+}
+
 * {
   box-sizing: border-box;
 }
@@ -62,4 +79,21 @@ header {
 .img-container {
   width: 50%;
   height: auto;
+}
+
+
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] + label:before {
+    font-family: FontAwesome;
+    content: "\f00d";
+    color: red;
+}
+
+input[type="checkbox"]:checked + label:before {
+    content: "\f00c";
+    color:green;
 }

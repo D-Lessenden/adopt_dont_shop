@@ -1,0 +1,18 @@
+
+<h1><%= link_to "#{@app.name}", "/apps/#{@app.id}" %></h1>
+<p>address: <%= @app.address  %></p>
+<p>city: <%= @app.city %></p>
+<p>state: <%= @app.state %></p>
+<p>zip: <%= @app.zip %></p>
+<p>phone number: <%= @app.phone_number %></p>
+<p>description: <%= @app.description %></p>
+  <% @app.pets.each do |pet| %>
+  <p> Pet:  <%= link_to "#{pet.name}", "/pets/#{pet.id}"  %></p>
+  <div id="pet-<%= pet.id %>">
+    <% if pet.adoption_status == "Adoptable" %>
+    <%= link_to "approve", "/pets/#{pet.id}?approve=true", method: :patch  %>
+    <% else %>
+    <%= link_to "revoke", "/pets/#{pet.id}?approve=false", method: :patch  %>
+    <% end %>
+  </div>
+  <% end %>
