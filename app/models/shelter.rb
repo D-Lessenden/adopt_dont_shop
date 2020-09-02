@@ -13,11 +13,11 @@ class Shelter < ApplicationRecord
 
   def average_review
     if reviews.count > 0
-      average = 0
+      average = 0.0
       reviews.each do |review|
         average += review.rating
       end
-      (average / reviews.count).to_f
+      (average / reviews.count).round(2)
     end
   end
 
@@ -33,8 +33,8 @@ class Shelter < ApplicationRecord
   def delete_pets
     pets.each do |pet|
       pet.apps.clear
-      pets.clear
     end
+    pets.clear
   end
 
 end
