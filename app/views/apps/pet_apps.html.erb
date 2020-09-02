@@ -2,6 +2,9 @@
     <p>No applications for this pet</p>
 <% else %>
     <%@application_pets.each do |app| %>
-    <%= link_to "#{app.app.name}", "/apps/#{app.id}" %>
-    <% end %>
+    <p>Active Application(s):</p>
+    <ul>
+      <%= link_to "#{app.app.name}", "/apps/#{app.id}" %>
+      <% end %>
+    </ul>
 <% end %>
