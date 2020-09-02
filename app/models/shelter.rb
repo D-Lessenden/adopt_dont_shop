@@ -17,8 +17,8 @@ class Shelter < ApplicationRecord
       reviews.each do |review|
         average += review.rating
       end
-      average / reviews.count
-    end 
+      (average / reviews.count).to_f
+    end
   end
 
   def count_of_apps
@@ -28,6 +28,13 @@ class Shelter < ApplicationRecord
       pet
     end
     applications
+  end
+
+  def delete_pets
+    pets.each do |pet|
+      pet.apps.clear
+      pets.clear
+    end
   end
 
 end
