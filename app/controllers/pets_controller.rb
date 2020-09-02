@@ -33,7 +33,11 @@ class PetsController < ApplicationController
       if pet.save
         redirect_to "/shelters/#{pet.shelter_id}/pets"
       else
-        flash[:alert] = "All fields required. You're better than that."
+        flash[:alert_image] = "Image is a required field" if pet.image.empty?
+        flash[:alert_name] = "Name is a required field" if pet.name.empty?
+        flash[:alert_description] = "Description is a required field" if pet.description.empty?
+        flash[:alert_age] = "Age is a required field" if pet.approximate_age.nil?
+        flash[:alert_sex] = "Sex is a required field" if pet.sex.empty?
         redirect_to "/shelters/#{pet.shelter_id}/pets/new"
       end
   end
@@ -62,7 +66,11 @@ class PetsController < ApplicationController
         if pet.save
           redirect_to "/pets/#{pet.id}"
         else
-          flash[:alert] = "All fields required. You're better than that."
+          flash[:alert_image] = "Image is a required field" if pet.image.empty?
+          flash[:alert_name] = "Name is a required field" if pet.name.empty?
+          flash[:alert_description] = "Description is a required field" if pet.description.empty?
+          flash[:alert_age] = "Age is a required field" if pet.approximate_age.nil?
+          flash[:alert_sex] = "Sex is a required field" if pet.sex.empty?
           redirect_to request.referrer
         end
     end
