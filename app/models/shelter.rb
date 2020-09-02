@@ -12,11 +12,13 @@ class Shelter < ApplicationRecord
   end
 
   def average_review
-    average = 0
-    reviews.each do |review|
-      average += review.rating
-    end
-    average / reviews.count
+    if reviews.count > 0
+      average = 0
+      reviews.each do |review|
+        average += review.rating
+      end
+      average / reviews.count
+    end 
   end
 
   def count_of_apps
