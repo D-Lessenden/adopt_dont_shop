@@ -27,9 +27,12 @@
 
 <br>
 <%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %>
-
- <form action="/pets/<%= @pet.id %>" method="POST">
-   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"><br>
-   <input type="hidden" name="_method" value="DELETE">
-   <input type="submit" name="Delete Pet" value="Delete Pet"/>
- </form>
+<% if @pet.pending_pet? %>
+  <p> pending applications </p>
+<% else  %>
+  <form action="/pets/<%= @pet.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"><br>
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="Delete Pet" value="Delete Pet"/>
+  </form>
+<%end  %>
