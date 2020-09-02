@@ -59,13 +59,13 @@ class PetsController < ApplicationController
         sex: params[:sex],
         shelter_id: params[:shelter_id],
         })
-      end
-      if pet.save
-        redirect_to "/pets/#{pet.id}"
-      else
-        flash[:alert] = "All fields required. You're better than that."
-        redirect_to "/pets/#{pet.id}/edit"
-      end
+        if pet.save
+          redirect_to "/pets/#{pet.id}"
+        else
+          flash[:alert] = "All fields required. You're better than that."
+          redirect_to request.referrer
+        end
+    end
   end
 
   def destroy
