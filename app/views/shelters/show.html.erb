@@ -7,6 +7,12 @@
 <p>State: <%= @shelter.state %></p>
 <p>Zip: <%= @shelter.zip %></p>
 
+<br>
+<p>Number of Pets: <%= @shelter.count_of_pets %></p>
+<p>Average Rating: <%= @shelter.average_review %></p>
+<p>Number of Applications: <%= @shelter.count_of_apps %></p>
+
+
 <h3>User Reviews: </h3>
 <% @shelter.reviews.each do |review| %>
 <ul> Title: <%= review.title %> </ul>
@@ -31,10 +37,12 @@
 <br>
 <% if @shelter.has_pending? %>
   <p>pending applications</p>
-<% else  %>
-<form action="/shelters/<%= @shelter.id %>" method="POST">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" name="Delete Shelter" value="Delete Shelter"/>
-</form>
-<%end  %>
+
+  <% else  %>
+  <form action="/shelters/<%= @shelter.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="Delete Shelter" value="Delete Shelter"/>
+  </form>
+  <% end  %>
+

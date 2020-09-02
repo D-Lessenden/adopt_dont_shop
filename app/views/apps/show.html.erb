@@ -1,4 +1,5 @@
-<h1><%= @app.name %></h1>
+
+<h1><%= link_to "#{@app.name}", "/apps/#{@app.id}" %></h1>
 <p>address: <%= @app.address  %></p>
 <p>city: <%= @app.city %></p>
 <p>state: <%= @app.state %></p>
