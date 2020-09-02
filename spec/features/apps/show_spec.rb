@@ -71,7 +71,6 @@ describe "As a visitor" do
       click_on "approve"
 
       visit "/app/#{@app1.id}"
-      save_and_open_page
       expect(page).to have_content("revoke")
       expect(page).to have_content("Pet")
       expect(page).to have_content("description")
