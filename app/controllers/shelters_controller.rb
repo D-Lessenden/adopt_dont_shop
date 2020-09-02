@@ -17,15 +17,16 @@ class SheltersController < ApplicationController
       city: params[:shelter][:city],
       state: params[:shelter][:state],
       zip: params[:shelter][:zip]
-
       })
-    # shelter.save
-    # redirect_to '/shelters'
     if shelter.save
       redirect_to "/shelters"
     else
-      flash[:alert] = "All feilds are required"
-      redirect_to "/shelters/new"
+          flash[:alert_name] = "Name is a required field" if shelter.name.empty?
+          flash[:alert_address] = "Address is a required field" if shelter.address.empty?
+          flash[:alert_city] = "City is a required field" if shelter.city.empty?
+          flash[:alert_state] = "State is a required field" if shelter.state.empty?
+          flash[:alert_zip] = "Zip is a required field" if shelter.zip.nil?
+        redirect_to "/shelters/new"
     end
   end
 
@@ -42,8 +43,6 @@ class SheltersController < ApplicationController
       state: params[:shelter][:state],
       zip: params[:shelter][:zip]
       })
-    # shelter.save
-    # redirect_to "/shelters/#{shelter.id}"
     if shelter.save
       redirect_to "/shelters/#{shelter.id}"
     else
