@@ -39,17 +39,6 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
   end
 
-  # def update_approve
-  #   pet = Pet.find(params[:id])
-  #   if params[:approve] == 'true'
-  #     pet.update( {adoption_status: "pending"})
-  #     redirect_to "/pets/#{pet.id}"
-  #   else
-  #     pet.update( {adoption_status: "Adoptable"})
-  #     redirect_to request.referrer
-  #   end
-  # end
-
   def update
     pet = Pet.find(params[:id])
     if params[:approve] == 'true'
@@ -66,7 +55,6 @@ class PetsController < ApplicationController
         approximate_age: params[:approximate_age],
         sex: params[:sex],
         shelter_id: params[:shelter_id],
-        # adoption_status: params[:adoption_status],
         })
         redirect_to "/pets/#{pet.id}"
       end
