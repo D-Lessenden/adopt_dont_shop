@@ -19,8 +19,14 @@ class SheltersController < ApplicationController
       zip: params[:shelter][:zip]
 
       })
-    shelter.save
-    redirect_to '/shelters'
+    # shelter.save
+    # redirect_to '/shelters'
+    if shelter.save
+      redirect_to "/shelters"
+    else
+      flash[:alert] = "All feilds are required"
+      redirect_to "/shelters/new"
+    end
   end
 
   def edit
@@ -36,8 +42,14 @@ class SheltersController < ApplicationController
       state: params[:shelter][:state],
       zip: params[:shelter][:zip]
       })
-    shelter.save
-    redirect_to "/shelters/#{shelter.id}"
+    # shelter.save
+    # redirect_to "/shelters/#{shelter.id}"
+    if shelter.save
+      redirect_to "/shelters/#{shelter.id}"
+    else
+      flash[:alert] = "All feilds are required"
+      redirect_to "/shelters/#{shelter.id}/edit"
+    end
   end
 
   def destroy

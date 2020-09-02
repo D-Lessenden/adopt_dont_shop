@@ -7,6 +7,12 @@
 <p>State: <%= @shelter.state %></p>
 <p>Zip: <%= @shelter.zip %></p>
 
+<br>
+<p>Number of Pets: <%= @shelter.count_of_pets %></p>
+<p>Average Rating: <%= @shelter.average_review %></p>
+<p>Number of Applications: <%= @shelter.count_of_apps %></p>
+
+
 <h3>User Reviews: </h3>
 <% @shelter.reviews.each do |review| %>
 <ul> Title: <%= review.title %> </ul>
